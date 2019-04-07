@@ -1,0 +1,28 @@
+# Spring Boot configuration
+spring:
+  profiles:
+    active: development
+  session:
+        timeout: 30
+# Database
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/diemdanhsinhvien?zeroDateTimeBehavior=convertToNull&useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    password: 
+# JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: none
+    # Show or not log for each sql query
+    show-sql: true
+    database: mysql
+    # The SQL dialect makes Hibernate generate better SQL for the chosen database
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    generate-ddl: false
+# Server configuration
+server:
+  port: 8888
+  
+  
