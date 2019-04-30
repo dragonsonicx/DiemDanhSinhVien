@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content">
+
+            <ImageView
+
+                android:id="@+id/devBg"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="160dp"
+
+                android:layout_alignLeft="@+id/labelTenGV"
+
+                android:layout_alignParentTop="true"
+
+                android:scaleType="centerCrop"
+
+                android:src="@drawable/zerothevoid" />
+
+            <ImageView
+
+                android:id="@+id/Dev1"
+
+                android:layout_width="170dp"
+
+                android:layout_height="170dp"
+
+                android:layout_centerHorizontal="true"
+
+                android:layout_marginTop="70dp"
+
+                android:background="@drawable/teacher"
+
+                android:padding="2dp"
+
+                android:scaleType="fitXY" />
+
+            <TextView
+
+                android:id="@+id/labelTenGV"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+
+                android:layout_below="@+id/Dev1"
+
+                android:layout_centerHorizontal="true"
+
+                android:gravity="center"
+
+                android:text=""
+
+                android:textAppearance="?android:attr/textAppearanceMedium"
+
+                android:textStyle="bold" />
+
+            <TextView
+
+                android:id="@+id/tvDev1Discp"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/labelTenGV"
+
+                android:layout_centerHorizontal="true"
+
+                android:gravity="center"
+
+                android:text="I Have done some coding and designed some UI interface."
+
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+            <ImageView
+
+                android:id="@+id/devBg2"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="160dp"
+
+                android:layout_below="@+id/tvDev1Discp"
+
+                android:layout_marginTop="5dp"
+
+                android:scaleType="centerCrop"
+
+                android:src="@drawable/zerothevoid" />
+
+            <ImageView
+
+                android:id="@+id/Dev2"
+
+                android:layout_width="170dp"
+
+                android:layout_height="170dp"
+
+                android:layout_centerHorizontal="true"
+
+                android:layout_marginTop="350dp"
+
+                android:background="@drawable/teacher"
+
+                android:padding="2dp"
+
+                android:scaleType="fitXY" />
+
+            <TextView
+
+                android:id="@+id/txtViewTenGV"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+
+                android:layout_below="@+id/Dev2"
+
+                android:layout_centerHorizontal="true"
+
+                android:gravity="center"
+
+                android:text=""
+
+                android:textAppearance="?android:attr/textAppearanceMedium"
+
+                android:textStyle="bold" />
+
+            <TextView
+
+                android:id="@+id/tvDev2Discp"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/txtViewTenGV"
+
+                android:layout_centerHorizontal="true"
+
+                android:gravity="center"
+
+                android:text="I Have Designed UI Interface"
+
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+            <ImageView
+
+                android:id="@+id/devBg3"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="160dp"
+
+                android:layout_below="@+id/tvDev2Discp"
+
+                android:layout_marginTop="5dp"
+
+                android:scaleType="fitXY"
+
+                android:src="@drawable/zerothevoid" />
+
+
+            <ImageView
+
+                android:id="@+id/Dev3"
+
+                android:layout_width="170dp"
+
+                android:layout_height="170dp"
+
+                android:layout_alignLeft="@+id/Dev2"
+
+                android:layout_alignTop="@+id/devBg3"
+
+                android:layout_marginTop="70dp"
+
+                android:background="@drawable/teacher"
+
+                android:padding="2dp"
+
+                android:scaleType="fitXY" />
+
+            <TextView
+
+                android:id="@+id/textView3"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/Dev3"
+
+                android:layout_centerHorizontal="true"
+
+                android:gravity="center"
+
+                android:text=""
+
+                android:textAppearance="?android:attr/textAppearanceMedium"
+
+                android:textStyle="bold" />
+
+            <TextView
+
+                android:id="@+id/tvDev3Discp"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/textView3"
+
+                android:layout_centerHorizontal="true"
+
+                android:gravity="center"
+
+                android:text="I Have Done Testing"
+
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+            <ImageView
+
+                android:id="@+id/devBg4"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="160dp"
+
+                android:layout_below="@+id/tvDev3Discp"
+
+                android:layout_marginTop="5dp"
+
+                android:scaleType="fitXY"
+
+                android:src="@drawable/zerothevoid" />
+
+            <ImageView
+
+                android:id="@+id/Dev4"
+
+                android:layout_width="170dp"
+
+                android:layout_height="170dp"
+
+                android:layout_alignLeft="@+id/Dev2"
+
+                android:layout_alignTop="@+id/devBg4"
+
+                android:layout_marginTop="70dp"
+
+                android:background="@drawable/teacher"
+
+                android:padding="2dp"
+
+                android:scaleType="fitXY" />
+
+            <TextView
+
+                android:id="@+id/textView4"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/Dev4"
+
+                android:layout_centerHorizontal="true"
+
+                android:gravity="center"
+
+                android:text=""
+
+                android:textAppearance="?android:attr/textAppearanceMedium"
+
+                android:textStyle="bold" />
+
+            <TextView
+
+                android:id="@+id/tvDev4Discp"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/textView4"
+
+                android:layout_centerHorizontal="true"
+
+                android:gravity="center"
+
+                android:text="I have done testing on application behaviour and functions"
+
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+        </RelativeLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</ScrollView>

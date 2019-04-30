@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/main_ma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mã" />
+
+
+    <TextView
+        android:id="@+id/main_ten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên"/>
+
+    <TextView
+        android:id="@+id/main_hinh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hình"/>
+
+    <TextView
+        android:id="@+id/main_ngaysinh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ngày sinh"/>
+
+    <TextView
+        android:id="@+id/main_gioitinh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Giới tính"/>
+
+    <TextView
+        android:id="@+id/main_tenlop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên lớp"/>
+
+    <TextView
+        android:id="@+id/main_trinhdo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Trình độ"/>
+
+    <TextView
+        android:id="@+id/main_chucvu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chức vụ"/>
+
+    <TextView
+        android:id="@+id/main_tenkhoa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên khoa"/>
+
+    <TextView
+        android:id="@+id/main_matkhau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mật khẩu"/>
+
+    <TextView
+        android:id="@+id/main_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status"/>
+
+</LinearLayout>

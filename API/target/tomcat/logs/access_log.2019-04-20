@@ -1,0 +1,13 @@
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:16:33:02 +0700] "GET /nguoidung/getAll HTTP/1.1" 200 470 http-bio-8899-exec-2 527
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:16:35:58 +0700] "GET /nguoidung/getAll HTTP/1.1" 200 470 http-bio-8899-exec-2 971
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:16:36:33 +0700] "GET /nguoidung/getAll HTTP/1.1" 200 470 http-bio-8899-exec-4 16
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:16:36:38 +0700] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8899-exec-7 10
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:16:39:38 +0700] "GET /nguoidung/getAll HTTP/1.1" 200 470 http-bio-8899-exec-2 609
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:16:39:52 +0700] "GET /nguoidung/getAll HTTP/1.1" 200 470 http-bio-8899-exec-3 44
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:23:20:14 +0700] "GET /nguoidung/deleteByID/15049483 HTTP/1.1" 200 15 http-bio-8899-exec-2 1128
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:23:28:55 +0700] "GET /nguoidung/deleteByID/15049483 HTTP/1.1" 200 15 http-bio-8899-exec-2 530
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:23:33:47 +0700] "GET /nguoidung/deleteByID/15049483 HTTP/1.1" 200 15 http-bio-8899-exec-2 607
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:23:41:39 +0700] "GET /nguoidung/deleteByID/1503298 HTTP/1.1" 200 14 http-bio-8899-exec-2 700
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:23:42:21 +0700] "GET /nguoidung/getAll HTTP/1.1" 200 470 http-bio-8899-exec-3 81
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:23:43:51 +0700] "GET /nguoidung/getAll HTTP/1.1" 200 642 http-bio-8899-exec-2 894
+0:0:0:0:0:0:0:1 - - [20/Apr/2019:23:56:51 +0700] "GET /nguoidung/getAll HTTP/1.1" 200 470 http-bio-8899-exec-2 825

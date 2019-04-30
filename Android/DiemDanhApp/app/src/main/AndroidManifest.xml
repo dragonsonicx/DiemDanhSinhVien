@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zic.diemdanhapp">
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    xmlns:tools="http://schemas.android.com/tools"
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.ForgetPass" />
+        <activity android:name=".activities.QuetMaQR" />
+        android:name="com.journeyapps.barcodescanner.CaptureActivity"
+        android:screenOrientation="portrait"
+        tools:replace="screenOrientation" />
+        <activity android:name=".activities.ThongTinSinhVien" />
+        <activity android:name=".activities.ChangePass" />
+        <activity android:name=".activities.ThongTinGiaoVien" />
+        <activity android:name=".activities.ChinhSuaSV" />
+        <activity android:name=".activities.ChiTietDiemDanh" />
+        <activity android:name=".activities.XemLichHoc"></activity>
+    </application>
+
+</manifest>

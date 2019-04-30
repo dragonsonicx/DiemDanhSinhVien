@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Điểm danh app</string>
+
+    <string-array name="spinForget">
+        <item>SĐT</item>
+        <item>Email</item>
+        <item>Câu hỏi bảo mật</item>
+    </string-array>
+
+    <string-array name="spinCH">
+        <item>Tên vật nuôi đầu tiên của bạn ?</item>
+        <item>Tên thầy/cô giáo đầu tiên của bạn ?</item>
+        <item>Bạn đi du lịch lần đầu tiên ở đâu ?</item>
+        <item>Bạn thích loại động vật nào nhất</item>
+        <item>Game online đầu tiên bạn chơi ?</item>
+        <item>Game offline bạn thích nhất ?</item>
+    </string-array>
+</resources>
