@@ -134,7 +134,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".65"
-                    android:text="15022571"
                     android:textColor="#040750"
                     android:textSize="20dp" />
             </TableRow>
@@ -160,7 +159,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".655"
-                    android:text="Phạm Nguyễn Minh Trí"
                     android:textColor="#040750"
                     android:textSize="20dp" />
             </TableRow>
@@ -186,7 +184,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".65"
-                    android:text="09-07-1997"
                     android:textColor="#040750"
                     android:textSize="20dp" />
             </TableRow>
@@ -212,7 +209,56 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".65"
-                    android:text="Nam"
+                    android:textColor="#040750"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/labelSDTSV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".35"
+                    android:text="SĐT"
+                    android:textColor="#040750"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtViewSDTSV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".65"
+                    android:textColor="#040750"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/labelEmailSV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".35"
+                    android:text="Email"
+                    android:textColor="#040750"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtViewEmailSV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".65"
                     android:textColor="#040750"
                     android:textSize="20dp" />
             </TableRow>
@@ -234,11 +280,85 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtViewLopSV"
+                    android:id="@+id/txtViewTenLopSV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".65"
-                    android:text="DHCNTT11A"
+                    android:textColor="#040750"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/labelTrinhDoSV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".35"
+                    android:text="Trình độ"
+                    android:textColor="#040750"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtViewTrinhDoSV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".65"
+                    android:textColor="#040750"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/labelChucVuSV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".35"
+                    android:text="Chức vụ"
+                    android:textColor="#040750"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtViewChucVuSV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".65"
+                    android:textColor="#040750"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/labelKhoaSV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".35"
+                    android:text="Khoa"
+                    android:textColor="#040750"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtViewKhoaSV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".65"
                     android:textColor="#040750"
                     android:textSize="20dp" />
             </TableRow>

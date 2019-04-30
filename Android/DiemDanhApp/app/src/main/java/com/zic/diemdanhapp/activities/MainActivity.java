@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }).start();
 
-                    //Delay 1.5s để lấy dữ liệu ( phòng trường hợp mạng yếu )
+                    //Delay 2s để lấy dữ liệu ( phòng trường hợp mạng yếu )
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
@@ -80,15 +80,22 @@ public class MainActivity extends AppCompatActivity {
                             // Tắt progress bar
                             progressDialog.dismiss();
 
-                            // Chuyển layout nếu pass đúng
+                            // Chuyển layout tương ứng nếu pass đúng
                             if (txtpass.getText().toString().equals(pass)) {
-                                Intent chuyenlayoutSV = new Intent(getApplicationContext(), ThongTinGiaoVien.class);
-                                chuyenlayoutSV.putExtra("ma", ma);
-                                startActivity((chuyenlayoutSV));
+                                if (status.equals("1")) {
+                                    Intent chuyenlayoutGV = new Intent(getApplicationContext(), ThongTinGiaoVien.class);
+                                    chuyenlayoutGV.putExtra("ma", ma);
+                                    startActivity((chuyenlayoutGV));
+                                }
+                                else if (status.equals("0")){
+                                    Intent chuyenlayoutSV = new Intent(getApplicationContext(), ThongTinSinhVien.class);
+                                    chuyenlayoutSV.putExtra("ma", ma);
+                                    startActivity((chuyenlayoutSV));
+                                }
                             } else
                                 Toast.makeText(getApplicationContext(), "Sai mật khẩu ~", Toast.LENGTH_SHORT).show();
                         }
-                    }, 1500);
+                    }, 2000);
 
 
                 }

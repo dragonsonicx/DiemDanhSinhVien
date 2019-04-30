@@ -65,7 +65,7 @@ public class ChangePass extends AppCompatActivity {
                         }
                     }).start();
 
-                    //Delay 1.5s để lấy dữ liệu ( phòng trường hợp mạng yếu )
+                    //Delay 2s để lấy dữ liệu ( phòng trường hợp mạng yếu )
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
@@ -80,7 +80,7 @@ public class ChangePass extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Nhập lại mật khẩu mới không đúng", Toast.LENGTH_SHORT).show();
                             } else {
                                 String urldoimatkhau = "nguoidung/" + "doiMatKhau/" + editchangema.getText().toString()
-                                        + "/" + editnewpass2.getText().toString();
+                                        + "/" + editoldpass.getText().toString() + "/" + editnewpass2.getText().toString() ;
 
                                 new HttpAsyncTask().execute(MethodChung.CreateURL() + urldoimatkhau);
 
@@ -96,7 +96,7 @@ public class ChangePass extends AppCompatActivity {
                                     }
                                 }).start();
 
-                                //Delay 1.5s để lấy dữ liệu ( phòng trường hợp mạng yếu )
+                                //Delay 2s để lấy dữ liệu ( phòng trường hợp mạng yếu )
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
                                     @Override
@@ -108,10 +108,10 @@ public class ChangePass extends AppCompatActivity {
                                         Intent chuyenlayoutMain = new Intent(getApplicationContext(), MainActivity.class);
                                         startActivity(chuyenlayoutMain);
                                     }
-                                }, 1500);
+                                }, 2000);
                             }
                         }
-                    }, 1500);
+                    }, 2000);
                 }
             }
 

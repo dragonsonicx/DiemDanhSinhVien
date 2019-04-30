@@ -161,9 +161,8 @@
                 <TextView
                     android:id="@+id/txtViewMaGV"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="31dp"
                     android:layout_weight=".65"
-                    android:text="15094631"
                     android:textColor="#040750"
                     android:textSize="20dp" />
             </TableRow>
@@ -189,7 +188,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".655"
-                    android:text="Nguyễn Minh Thiên"
                     android:textColor="#040750"
                     android:textSize="20dp" />
             </TableRow>
@@ -215,7 +213,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".65"
-                    android:text="05/01/1997"
                     android:textColor="#040750"
                     android:textSize="20dp" />
             </TableRow>
@@ -241,7 +238,56 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".65"
-                    android:text="Nam"
+                    android:textColor="#040750"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/labelSDTGV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".35"
+                    android:text="SĐT"
+                    android:textColor="#040750"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtViewSDTGV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".65"
+                    android:textColor="#040750"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/labelEmailGV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".35"
+                    android:text="Email"
+                    android:textColor="#040750"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtViewEmailGV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".65"
                     android:textColor="#040750"
                     android:textSize="20dp" />
             </TableRow>
@@ -267,7 +313,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".65"
-                    android:text="Đại học"
                     android:textColor="#040750"
                     android:textSize="20dp" />
             </TableRow>
@@ -293,7 +338,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".65"
-                    android:text="Thực tập sinh"
                     android:textColor="#040750"
                     android:textSize="20dp" />
             </TableRow>
@@ -319,7 +363,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".65"
-                    android:text="Công nghệ thông tin"
                     android:textColor="#040750"
                     android:textSize="20dp" />
             </TableRow>

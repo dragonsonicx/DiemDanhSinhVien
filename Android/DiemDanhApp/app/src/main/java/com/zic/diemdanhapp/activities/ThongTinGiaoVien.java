@@ -26,7 +26,7 @@ public class ThongTinGiaoVien extends AppCompatActivity{
 
     String manhanduoc;
 
-    String ma, ten, hinh, ngaysinh, gioitinh, trinhdo, chucvu, tenkhoa;
+    String ma, ten, hinh, ngaysinh, gioitinh, sdt, email, trinhdo, chucvu, tenkhoa;
 
     ProgressDialog progressDialog;
 
@@ -41,6 +41,8 @@ public class ThongTinGiaoVien extends AppCompatActivity{
         //hinh
         final TextView txtngaysinh = findViewById(R.id.txtViewNgaySinhGV);
         final TextView txtgioitinh = findViewById(R.id.txtViewGioiTinhGV);
+        final TextView txtsdt = findViewById(R.id.txtViewSDTGV);
+        final TextView txtemail = findViewById(R.id.txtViewEmailGV);
         final TextView txttrinhdo = findViewById(R.id.txtViewTrinhDoGV);
         final TextView txtchucvu = findViewById(R.id.txtViewChucVuGV);
         final TextView txttenkhoa = findViewById(R.id.txtViewKhoaGV);
@@ -51,7 +53,7 @@ public class ThongTinGiaoVien extends AppCompatActivity{
 
         // Lấy thông tin GV theo mã
         String urlthongtingiaovien = "nguoidung/findById/" + manhanduoc;
-        new HttpAsyncTask().execute(urlthongtingiaovien);
+        new HttpAsyncTask().execute(MethodChung.CreateURL() + urlthongtingiaovien);
 
         // Hiện progress bar
         progressDialog = new ProgressDialog(ThongTinGiaoVien.this);
@@ -65,7 +67,7 @@ public class ThongTinGiaoVien extends AppCompatActivity{
             }
         }).start();
 
-        //Delay 1.5s để lấy dữ liệu ( phòng trường hợp mạng yếu )
+        //Delay 2s để lấy dữ liệu ( phòng trường hợp mạng yếu )
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -73,17 +75,22 @@ public class ThongTinGiaoVien extends AppCompatActivity{
                 // Tắt progress bar
                 progressDialog.dismiss();
 
-            }
-        }, 1500);
+                txtma.setText(ma);
+                txtten.setText(ten);
+                //hinh
+                txtngaysinh.setText(ngaysinh);
+                txtgioitinh.setText(gioitinh);
+                txtsdt.setText(sdt);
+                txtemail.setText(email);
+                txttrinhdo.setText(trinhdo);
+                txtchucvu.setText(chucvu);
+                txttenkhoa.setText(tenkhoa);
+                Toast.makeText(ThongTinGiaoVien.this, ma, Toast.LENGTH_SHORT).show();
 
-        txtma.setText(ma);
-        txtten.setText(ten);
-        //hinh
-        txtngaysinh.setText(ngaysinh);
-        txtgioitinh.setText(gioitinh);
-        txttrinhdo.setText(trinhdo);
-        txtchucvu.setText(chucvu);
-        txttenkhoa.setText(tenkhoa);
+            }
+        }, 2000);
+
+
 
         // Sự kiện bấm nút Đăng xuất
         Button btnlogoutgv = findViewById(R.id.btnLogoutGV);
@@ -156,10 +163,12 @@ public class ThongTinGiaoVien extends AppCompatActivity{
             try {
                 JSONObject jsonObj = new JSONObject(result); // convert String to JSONObject
                 ma = jsonObj.getString("maNguoiDung");
-                ten = jsonObj.getString("matKhau");
+                ten = jsonObj.getString("tenNguoiDung");
                 hinh = jsonObj.getString("hinh");
                 ngaysinh = jsonObj.getString("ngaySinh");
                 gioitinh = jsonObj.getString("gioiTinh");
+                sdt = jsonObj.getString("sodienthoai");
+                email = jsonObj.getString("email");
                 trinhdo = jsonObj.getString("trinhDo");
                 chucvu = jsonObj.getString("chucVu");
                 tenkhoa = jsonObj.getString("tenKhoa");
