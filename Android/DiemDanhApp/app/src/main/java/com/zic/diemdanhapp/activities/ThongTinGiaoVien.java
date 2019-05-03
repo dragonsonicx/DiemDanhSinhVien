@@ -11,9 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.zxing.Result;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
 import com.zic.diemdanhapp.R;
 import com.zic.diemdanhapp.adapters.MethodChung;
 
@@ -22,7 +19,7 @@ import org.json.JSONObject;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-public class ThongTinGiaoVien extends AppCompatActivity{
+public class ThongTinGiaoVien extends AppCompatActivity {
 
     String manhanduoc;
 
@@ -35,17 +32,6 @@ public class ThongTinGiaoVien extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thong_tin_giao_vien);
         getSupportActionBar().hide();
-
-        final TextView txtma = findViewById(R.id.txtViewMaGV);
-        final TextView txtten = findViewById(R.id.txtViewTenGV);
-        //hinh
-        final TextView txtngaysinh = findViewById(R.id.txtViewNgaySinhGV);
-        final TextView txtgioitinh = findViewById(R.id.txtViewGioiTinhGV);
-        final TextView txtsdt = findViewById(R.id.txtViewSDTGV);
-        final TextView txtemail = findViewById(R.id.txtViewEmailGV);
-        final TextView txttrinhdo = findViewById(R.id.txtViewTrinhDoGV);
-        final TextView txtchucvu = findViewById(R.id.txtViewChucVuGV);
-        final TextView txttenkhoa = findViewById(R.id.txtViewKhoaGV);
 
         // Nhận mã GV từ phần đăng nhập
         Intent nhanpass = getIntent();
@@ -67,7 +53,7 @@ public class ThongTinGiaoVien extends AppCompatActivity{
             }
         }).start();
 
-        //Delay 2s để lấy dữ liệu ( phòng trường hợp mạng yếu )
+        //Delay 1s
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -75,21 +61,8 @@ public class ThongTinGiaoVien extends AppCompatActivity{
                 // Tắt progress bar
                 progressDialog.dismiss();
 
-                txtma.setText(ma);
-                txtten.setText(ten);
-                //hinh
-                txtngaysinh.setText(ngaysinh);
-                txtgioitinh.setText(gioitinh);
-                txtsdt.setText(sdt);
-                txtemail.setText(email);
-                txttrinhdo.setText(trinhdo);
-                txtchucvu.setText(chucvu);
-                txttenkhoa.setText(tenkhoa);
-                Toast.makeText(ThongTinGiaoVien.this, ma, Toast.LENGTH_SHORT).show();
-
             }
-        }, 2000);
-
+        }, 1000);
 
 
         // Sự kiện bấm nút Đăng xuất
@@ -128,6 +101,8 @@ public class ThongTinGiaoVien extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Intent chuyenlayoutxemlichhoc = new Intent(getApplicationContext(), XemLichHoc.class);
+                chuyenlayoutxemlichhoc.putExtra("ma", manhanduoc);
+                chuyenlayoutxemlichhoc.putExtra("status", "0");
                 startActivity(chuyenlayoutxemlichhoc);
             }
         });
@@ -137,7 +112,7 @@ public class ThongTinGiaoVien extends AppCompatActivity{
         btnqr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),QuetMaQR.class));
+                startActivity(new Intent(getApplicationContext(), QuetMaQR.class));
             }
         });
     }
@@ -157,11 +132,25 @@ public class ThongTinGiaoVien extends AppCompatActivity{
             return MethodChung.GET(urls[0]);
         }
 
+
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
+
+            TextView txtma = findViewById(R.id.txtViewMaGV);
+            TextView txtten = findViewById(R.id.txtViewTenGV);
+            //hinh
+            TextView txtngaysinh = findViewById(R.id.txtViewNgaySinhGV);
+            TextView txtgioitinh = findViewById(R.id.txtViewGioiTinhGV);
+            TextView txtsdt = findViewById(R.id.txtViewSDTGV);
+            TextView txtemail = findViewById(R.id.txtViewEmailGV);
+            TextView txttrinhdo = findViewById(R.id.txtViewTrinhDoGV);
+            TextView txtchucvu = findViewById(R.id.txtViewChucVuGV);
+            TextView txttenkhoa = findViewById(R.id.txtViewKhoaGV);
+
             try {
                 JSONObject jsonObj = new JSONObject(result); // convert String to JSONObject
+
                 ma = jsonObj.getString("maNguoiDung");
                 ten = jsonObj.getString("tenNguoiDung");
                 hinh = jsonObj.getString("hinh");
@@ -172,6 +161,17 @@ public class ThongTinGiaoVien extends AppCompatActivity{
                 trinhdo = jsonObj.getString("trinhDo");
                 chucvu = jsonObj.getString("chucVu");
                 tenkhoa = jsonObj.getString("tenKhoa");
+
+                txtma.setText(ma);
+                txtten.setText(ten);
+//hinh
+                txtngaysinh.setText(ngaysinh);
+                txtgioitinh.setText(gioitinh);
+                txtsdt.setText(sdt);
+                txtemail.setText(email);
+                txttrinhdo.setText(trinhdo);
+                txtchucvu.setText(chucvu);
+                txttenkhoa.setText(tenkhoa);
 
             } catch (JSONException e) {
                 e.printStackTrace();

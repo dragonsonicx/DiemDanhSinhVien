@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class NguoiDung {
 
-    public int manguoidung;
+    public String manguoidung;
     public String tennguoidung;
     public String hinh;
     public String ngaysinh;
@@ -20,11 +20,25 @@ public class NguoiDung {
 
     }
 
-    public int getManguoidung() {
+    public NguoiDung(String manguoidung, String tennguoidung, String hinh, String ngaysinh, String gioitinh, String tenlop, String trinhdo, String chucvu, String tenkhoa, String matkhau, String stat) {
+        this.manguoidung = manguoidung;
+        this.tennguoidung = tennguoidung;
+        this.hinh = hinh;
+        this.ngaysinh = ngaysinh;
+        this.gioitinh = gioitinh;
+        this.tenlop = tenlop;
+        this.trinhdo = trinhdo;
+        this.chucvu = chucvu;
+        this.tenkhoa = tenkhoa;
+        this.matkhau = matkhau;
+        this.stat = stat;
+    }
+
+    public String getManguoidung() {
         return manguoidung;
     }
 
-    public void setManguoidung(int manguoidung) {
+    public void setManguoidung(String manguoidung) {
         this.manguoidung = manguoidung;
     }
 
@@ -105,20 +119,6 @@ public class NguoiDung {
     }
 
     public void setStat(String stat) {
-        this.stat = stat;
-    }
-
-    public NguoiDung(int manguoidung, String tennguoidung, String hinh, String ngaysinh, String gioitinh, String tenlop, String trinhdo, String chucvu, String tenkhoa, String matkhau, String stat) {
-        this.manguoidung = manguoidung;
-        this.tennguoidung = tennguoidung;
-        this.hinh = hinh;
-        this.ngaysinh = ngaysinh;
-        this.gioitinh = gioitinh;
-        this.tenlop = tenlop;
-        this.trinhdo = trinhdo;
-        this.chucvu = chucvu;
-        this.tenkhoa = tenkhoa;
-        this.matkhau = matkhau;
         this.stat = stat;
     }
 }

@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.zxing.Result;
 import com.zic.diemdanhapp.R;
 import com.zic.diemdanhapp.adapters.MethodChung;
 
@@ -34,18 +33,6 @@ public class ThongTinSinhVien extends AppCompatActivity {
         setContentView(R.layout.activity_thong_tin_sinh_vien);
         getSupportActionBar().hide();
 
-        final TextView txtma = findViewById(R.id.txtViewMaSV);
-        final TextView txtten = findViewById(R.id.txtViewTenSV);
-        //hinh
-        final TextView txtngaysinh = findViewById(R.id.txtViewNgaySinhSV);
-        final TextView txtgioitinh = findViewById(R.id.txtViewGioiTinhSV);
-        final TextView txtsdt = findViewById(R.id.txtViewSDTSV);
-        final TextView txtemail = findViewById(R.id.txtViewEmailSV);
-        final TextView txttenlop = findViewById(R.id.txtViewTenLopSV);
-        final TextView txttrinhdo = findViewById(R.id.txtViewTrinhDoSV);
-        final TextView txtchucvu = findViewById(R.id.txtViewChucVuSV);
-        final TextView txttenkhoa = findViewById(R.id.txtViewKhoaSV);
-
         // Nhận mã SV từ phần đăng nhập
         Intent nhanpass = getIntent();
         manhanduoc = nhanpass.getStringExtra("ma");
@@ -66,7 +53,7 @@ public class ThongTinSinhVien extends AppCompatActivity {
             }
         }).start();
 
-        //Delay 2s để lấy dữ liệu ( phòng trường hợp mạng yếu )
+        //Delay 1s
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -74,21 +61,8 @@ public class ThongTinSinhVien extends AppCompatActivity {
                 // Tắt progress bar
                 progressDialog.dismiss();
 
-                txtma.setText(ma);
-                txtten.setText(ten);
-                //hinh
-                txtngaysinh.setText(ngaysinh);
-                txtgioitinh.setText(gioitinh);
-                txtsdt.setText(sdt);
-                txtemail.setText(email);
-                txttenlop.setText(tenlop);
-                txttrinhdo.setText(trinhdo);
-                txtchucvu.setText(chucvu);
-                txttenkhoa.setText(tenkhoa);
-                Toast.makeText(ThongTinSinhVien.this, ma, Toast.LENGTH_SHORT).show();
-
             }
-        }, 2000);
+        }, 1000);
 
         // Sự kiện bấm nút Đăng xuất
         Button btnlogoutsv = findViewById(R.id.btnLogoutSV);
@@ -106,6 +80,8 @@ public class ThongTinSinhVien extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent chuyenlayoutxemlichhoc = new Intent(getApplicationContext(), XemLichHoc.class);
+                chuyenlayoutxemlichhoc.putExtra("ma", manhanduoc);
+                chuyenlayoutxemlichhoc.putExtra("status", "1");
                 startActivity(chuyenlayoutxemlichhoc);
             }
         });
@@ -137,6 +113,19 @@ public class ThongTinSinhVien extends AppCompatActivity {
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
+
+            TextView txtma = findViewById(R.id.txtViewMaSV);
+            TextView txtten = findViewById(R.id.txtViewTenSV);
+            //hinh
+            TextView txtngaysinh = findViewById(R.id.txtViewNgaySinhSV);
+            TextView txtgioitinh = findViewById(R.id.txtViewGioiTinhSV);
+            TextView txtsdt = findViewById(R.id.txtViewSDTSV);
+            TextView txtemail = findViewById(R.id.txtViewEmailSV);
+            TextView txttenlop = findViewById(R.id.txtViewTenLopSV);
+            TextView txttrinhdo = findViewById(R.id.txtViewTrinhDoSV);
+            TextView txtchucvu = findViewById(R.id.txtViewChucVuSV);
+            TextView txttenkhoa = findViewById(R.id.txtViewKhoaSV);
+
             try {
                 JSONObject jsonObj = new JSONObject(result); // convert String to JSONObject
                 ma = jsonObj.getString("maNguoiDung");
@@ -150,6 +139,18 @@ public class ThongTinSinhVien extends AppCompatActivity {
                 trinhdo = jsonObj.getString("trinhDo");
                 chucvu = jsonObj.getString("chucVu");
                 tenkhoa = jsonObj.getString("tenKhoa");
+
+                txtma.setText(ma);
+                txtten.setText(ten);
+                //hinh
+                txtngaysinh.setText(ngaysinh);
+                txtgioitinh.setText(gioitinh);
+                txtsdt.setText(sdt);
+                txtemail.setText(email);
+                txttenlop.setText(tenlop);
+                txttrinhdo.setText(trinhdo);
+                txtchucvu.setText(chucvu);
+                txttenkhoa.setText(tenkhoa);
 
             } catch (JSONException e) {
                 e.printStackTrace();
