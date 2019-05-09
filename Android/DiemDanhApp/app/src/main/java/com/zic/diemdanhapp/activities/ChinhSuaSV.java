@@ -41,12 +41,12 @@ public class ChinhSuaSV extends AppCompatActivity {
         }
 
         // call AsynTask to perform network operation on separate thread
-        new HttpAsyncTask().execute( MethodChung.CreateURL() + "nguoidung/findById/15022571");
+        new HttpAsyncTask().execute(MethodChung.CreateURL() + "nguoidung/findById/15022571");
 
     }
 
     //Hàm kiểm tra kết nối
-    public boolean isConnected(){
+    public boolean isConnected() {
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(MainActivity.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected())
@@ -62,13 +62,14 @@ public class ChinhSuaSV extends AppCompatActivity {
 
             return MethodChung.GET(urls[0]);
         }
+
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
             Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
             try {
                 JSONObject jsonObj = new JSONObject(result); // convert String to JSONObject
-                if(jsonObj.has("tenNguoiDung"))
+                if (jsonObj.has("tenNguoiDung"))
                     etResponse.setText(jsonObj.getString("tenNguoiDung"));
 
             } catch (JSONException e) {

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zic.diemdanhapp.R;
@@ -19,7 +20,7 @@ import org.json.JSONObject;
 
 public class ChangePass extends AppCompatActivity {
 
-    String oldpass, ma;
+    String oldpass, ma, manhanduoc, status;
 
     ProgressDialog progressDialog;
 
@@ -29,27 +30,31 @@ public class ChangePass extends AppCompatActivity {
         setContentView(R.layout.activity_change_pass);
         getSupportActionBar().hide();
 
+        // Nhận mã SV/GV
+        Intent nhanpass = getIntent();
+        manhanduoc = nhanpass.getStringExtra("ma");
+        status = nhanpass.getStringExtra("status");
 
         final EditText editoldpass = findViewById(R.id.editOldPass);
         final EditText editnewpass1 = findViewById(R.id.editNewPass1);
         final EditText editnewpass2 = findViewById(R.id.editNewPass2);
-        final EditText editchangema = findViewById(R.id.editChangeMa);
+        final TextView txtviewchangema = findViewById(R.id.txtViewChangeMa);
+
+        txtviewchangema.setText(manhanduoc);
 
         // Sự kiện bấm nút Tiếp tục
         Button btntieptucchange = findViewById(R.id.btnTiepChange);
         btntieptucchange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (editchangema.getText().toString().isEmpty())
-                    Toast.makeText(getApplicationContext(), "Bạn phải nhập mã SV/GV", Toast.LENGTH_SHORT).show();
-                else if (editoldpass.getText().toString().isEmpty())
+                if (editoldpass.getText().toString().isEmpty())
                     Toast.makeText(getApplicationContext(), "Bạn phải nhập mật khẩu cũ", Toast.LENGTH_SHORT).show();
                 else if (editnewpass1.getText().toString().isEmpty())
                     Toast.makeText(getApplicationContext(), "Bạn phải nhập khẩu mới", Toast.LENGTH_SHORT).show();
                 else if (editnewpass2.getText().toString().isEmpty())
                     Toast.makeText(getApplicationContext(), "Bạn để trống phần nhập lại mật khẩu mới", Toast.LENGTH_SHORT).show();
                 else {
-                    String urlcheck = "nguoidung/" + "findById/" + editchangema.getText().toString();
+                    String urlcheck = "nguoidung/" + "findById/" + txtviewchangema.getText().toString();
 
                     new HttpAsyncTask().execute(MethodChung.CreateURL() + urlcheck);
 
@@ -65,7 +70,7 @@ public class ChangePass extends AppCompatActivity {
                         }
                     }).start();
 
-                    //Delay 2s để lấy dữ liệu ( phòng trường hợp mạng yếu )
+                    //Delay 1s để lấy dữ liệu ( phòng trường hợp mạng yếu )
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
@@ -79,8 +84,8 @@ public class ChangePass extends AppCompatActivity {
                                     && !editnewpass2.getText().toString().equals(editnewpass1.getText().toString())) {
                                 Toast.makeText(getApplicationContext(), "Nhập lại mật khẩu mới không đúng", Toast.LENGTH_SHORT).show();
                             } else {
-                                String urldoimatkhau = "nguoidung/" + "doiMatKhau/" + editchangema.getText().toString()
-                                        + "/" + editoldpass.getText().toString() + "/" + editnewpass2.getText().toString() ;
+                                String urldoimatkhau = "nguoidung/" + "doiMatKhau/" + txtviewchangema.getText().toString()
+                                        + "/" + editoldpass.getText().toString() + "/" + editnewpass2.getText().toString();
 
                                 new HttpAsyncTask().execute(MethodChung.CreateURL() + urldoimatkhau);
 
@@ -96,7 +101,7 @@ public class ChangePass extends AppCompatActivity {
                                     }
                                 }).start();
 
-                                //Delay 2s để lấy dữ liệu ( phòng trường hợp mạng yếu )
+                                //Delay 1s để lấy dữ liệu ( phòng trường hợp mạng yếu )
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
                                     @Override
@@ -108,10 +113,10 @@ public class ChangePass extends AppCompatActivity {
                                         Intent chuyenlayoutMain = new Intent(getApplicationContext(), MainActivity.class);
                                         startActivity(chuyenlayoutMain);
                                     }
-                                }, 2000);
+                                }, 1000);
                             }
                         }
-                    }, 2000);
+                    }, 1000);
                 }
             }
 
@@ -122,8 +127,15 @@ public class ChangePass extends AppCompatActivity {
         btnhuychange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent chuyenlayoutMain = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(chuyenlayoutMain);
+                if (status.equals("1")) {
+                    Intent intentgv = new Intent(getApplicationContext(), ThongTinGiaoVien.class);
+                    intentgv.putExtra("ma", manhanduoc);
+                    startActivity(intentgv);
+                } else if (status.equals("0")) {
+                    Intent intentsv = new Intent(getApplicationContext(), ThongTinSinhVien.class);
+                    intentsv.putExtra("ma", manhanduoc);
+                    startActivity(intentsv);
+                }
             }
         });
     }

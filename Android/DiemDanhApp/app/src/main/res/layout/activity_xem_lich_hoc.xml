@@ -16,13 +16,23 @@
             android:background="#000000"
             android:stretchColumns="1">
 
+            <TableRow
+                android:id="@+id/ToolXemLich"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+            </TableRow>
+
             // Row thứ 2
 
             <TableRow
                 android:id="@+id/row2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_background"
+                android:background="#ffffff"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -51,7 +61,8 @@
                         android:id="@+id/rowT2Sang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_white"
+
                         android:padding="10px">
 
                         <TextView
@@ -72,7 +83,7 @@
                         android:id="@+id/rowT2Chieu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -93,7 +104,7 @@
                         android:id="@+id/rowT2Toi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -120,7 +131,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/button_background"
+                android:background="#ffffff"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -148,7 +159,7 @@
                         android:id="@+id/rowT3Sang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -169,7 +180,7 @@
                         android:id="@+id/rowT3Chieu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -190,7 +201,7 @@
                         android:id="@+id/rowT3Toi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -216,7 +227,7 @@
                 android:id="@+id/row4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_background"
+                android:background="#ffffff"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -245,7 +256,7 @@
                         android:id="@+id/rowT4Sang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -266,7 +277,7 @@
                         android:id="@+id/rowT4Chieu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -287,7 +298,7 @@
                         android:id="@+id/rowT4Toi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -313,7 +324,7 @@
                 android:id="@+id/row5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_background"
+                android:background="#ffffff"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -342,7 +353,7 @@
                         android:id="@+id/rowT5Sang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -363,7 +374,7 @@
                         android:id="@+id/rowT5Chieu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -384,7 +395,7 @@
                         android:id="@+id/rowT5Toi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_aqua"
                         android:padding="10px">
 
                         <TextView
@@ -410,7 +421,7 @@
                 android:id="@+id/row6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_background"
+                android:background="#ffffff"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -439,7 +450,7 @@
                         android:id="@+id/rowT6Sang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_aqua"
                         android:padding="10px">
 
                         <TextView
@@ -460,7 +471,7 @@
                         android:id="@+id/rowT6Chieu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_aqua"
                         android:padding="10px">
 
                         <TextView
@@ -481,7 +492,7 @@
                         android:id="@+id/rowT6Toi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_aqua"
                         android:padding="10px">
 
                         <TextView
@@ -507,7 +518,7 @@
                 android:id="@+id/row7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_background"
+                android:background="#ffffff"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -536,7 +547,7 @@
                         android:id="@+id/rowT7Sang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_aqua"
                         android:padding="10px">
 
                         <TextView
@@ -557,7 +568,7 @@
                         android:id="@+id/rowT7Chieu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_aqua"
                         android:padding="10px">
 
                         <TextView
@@ -578,7 +589,7 @@
                         android:id="@+id/rowT7Toi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_aqua"
                         android:padding="10px">
 
                         <TextView
@@ -598,13 +609,13 @@
             </TableRow>
 
 
-            // Row thứ 8  (XD)
+            // Row thứ 8 (XD)
 
             <TableRow
                 android:id="@+id/row8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_background"
+                android:background="#ffffff"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -633,7 +644,7 @@
                         android:id="@+id/rowT8Sang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_aqua"
                         android:padding="10px">
 
                         <TextView
@@ -654,7 +665,7 @@
                         android:id="@+id/rowT8Chieu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_aqua"
                         android:padding="10px">
 
                         <TextView
@@ -675,7 +686,7 @@
                         android:id="@+id/rowT8Toi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_layout_background"
+                        android:background="@drawable/row_xem_lich_aqua"
                         android:padding="10px">
 
                         <TextView
@@ -698,7 +709,3 @@
     </HorizontalScrollView>
 
 </ScrollView>
-
-
-
-

@@ -2,12 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zic.diemdanhapp">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
-    xmlns:tools="http://schemas.android.com/tools"
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,16 +22,12 @@
         </activity>
         <activity android:name=".activities.ForgetPass" />
         <activity android:name=".activities.QuetMaQR" />
-        android:name="com.journeyapps.barcodescanner.CaptureActivity"
-        android:screenOrientation="portrait"
-        tools:replace="screenOrientation" />
         <activity android:name=".activities.ThongTinSinhVien" />
         <activity android:name=".activities.ChangePass" />
         <activity android:name=".activities.ThongTinGiaoVien" />
         <activity android:name=".activities.ChinhSuaSV" />
         <activity android:name=".activities.ChiTietDiemDanh" />
-        <activity android:name=".activities.XemLichHoc">
-        </activity>
+        <activity android:name=".activities.XemLichHoc" />
     </application>
 
 </manifest>

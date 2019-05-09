@@ -3,11 +3,21 @@ package com.zic.diemdanhapp.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Handler;
+
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +33,11 @@ public class ThongTinGiaoVien extends AppCompatActivity {
 
     String manhanduoc;
 
-    String ma, ten, hinh, ngaysinh, gioitinh, sdt, email, trinhdo, chucvu, tenkhoa;
+    String ma, ten, hinh, ngaysinh, gioitinh, trinhdo, chucvu, tenkhoa;
 
     ProgressDialog progressDialog;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,71 +53,43 @@ public class ThongTinGiaoVien extends AppCompatActivity {
         String urlthongtingiaovien = "nguoidung/findById/" + manhanduoc;
         new HttpAsyncTask().execute(MethodChung.CreateURL() + urlthongtingiaovien);
 
-        // Hiện progress bar
-        progressDialog = new ProgressDialog(ThongTinGiaoVien.this);
-        progressDialog.setMessage("Loading..."); // Setting Message
-        progressDialog.setTitle("Đang kiểm tra ~"); // Setting Title
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
-        progressDialog.show(); // Display Progress Dialog
-        progressDialog.setCancelable(false);
-        new Thread(new Runnable() {
-            public void run() {
-            }
-        }).start();
-
-        //Delay 1s
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        drawerLayout = findViewById(R.id.drawerlayout);
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+        drawerLayout.addDrawerListener(toggle);
+        final NavigationView navigationView = findViewById(R.id.navigationview);
+        toggle.syncState();
+        ImageView toolbar = findViewById(R.id.btnmenu);
+        toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                // Tắt progress bar
-                progressDialog.dismiss();
-
-            }
-        }, 1000);
-
-
-        // Sự kiện bấm nút Đăng xuất
-        Button btnlogoutgv = findViewById(R.id.btnLogoutGV);
-        btnlogoutgv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent chuyenlayoutMain = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(chuyenlayoutMain);
+            public void onClick(View v) {
+                drawerLayout.openDrawer(navigationView);
             }
         });
 
-        // Sự kiện bấm nút Sửa danh sách
-        Button btnchinhsuagv = findViewById(R.id.btnChinhSuaGV);
-        btnchinhsuagv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent chuyenlayoutchinhsua = new Intent(getApplicationContext(), ChinhSuaSV.class);
-                startActivity(chuyenlayoutchinhsua);
-            }
-        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setupDrawerContent(navigationView);
 
-        // Sự kiện bấm nút Bảng điểm danh
-        Button btnctddanh = findViewById(R.id.btnBangDiemDanh);
-        btnctddanh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent chuyenlayoutbangdiemdanh = new Intent(getApplicationContext(), ChiTietDiemDanh.class);
-                startActivity(chuyenlayoutbangdiemdanh);
-            }
-        });
-
-        // Sự kiện bấm nút Xem lịch học
-        Button btnxemlichhoc = findViewById(R.id.btnXemLichGV);
-        btnxemlichhoc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent chuyenlayoutxemlichhoc = new Intent(getApplicationContext(), XemLichHoc.class);
-                chuyenlayoutxemlichhoc.putExtra("ma", manhanduoc);
-                chuyenlayoutxemlichhoc.putExtra("status", "0");
-                startActivity(chuyenlayoutxemlichhoc);
-            }
-        });
+//        // Hiện progress bar
+//        progressDialog = new ProgressDialog(ThongTinGiaoVien.this);
+//        progressDialog.setMessage("Loading..."); // Setting Message
+//        progressDialog.setTitle("Đang kiểm tra ~"); // Setting Title
+//        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+//        progressDialog.show(); // Display Progress Dialog
+//        progressDialog.setCancelable(false);
+//        new Thread(new Runnable() {
+//            public void run() {
+//            }
+//        }).start();
+//
+//        //Delay 1.5s để lấy dữ liệu ( phòng trường hợp mạng yếu )
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                // Tắt progress bar
+//                progressDialog.dismiss();
+//            }
+//        }, 1500);
 
         // Sự kiện bấm nút Quét mã QR
         Button btnqr = findViewById(R.id.btnQRGV);
@@ -117,6 +101,45 @@ public class ThongTinGiaoVien extends AppCompatActivity {
         });
     }
 
+    public void selectItemDrawer(MenuItem menuItem) {
+        Fragment fragment = null;
+        Class fragmentClass;
+        switch (menuItem.getItemId()) {
+            case R.id.bangDiemDanh:
+                Intent intentb = new Intent(ThongTinGiaoVien.this, ChiTietDiemDanh.class);
+                startActivity(intentb);
+                break;
+            case R.id.xemLichDay:
+                Intent intentb1 = new Intent(ThongTinGiaoVien.this, XemLichHoc.class);
+                intentb1.putExtra("ma", manhanduoc);
+                intentb1.putExtra("status", "1");
+                startActivity(intentb1);
+                break;
+            case R.id.doiMatKhau:
+                Intent intentb2 = new Intent(ThongTinGiaoVien.this, ChangePass.class);
+                intentb2.putExtra("ma", manhanduoc);
+                intentb2.putExtra("status", "1");
+                startActivity(intentb2);
+                break;
+            case R.id.dangXuat:
+                Intent intentb3 = new Intent(ThongTinGiaoVien.this, MainActivity.class);
+                startActivity(intentb3);
+                break;
+            default:
+                fragmentClass = ThongTinGiaoVien.class;
+        }
+
+    }
+
+    private void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                selectItemDrawer(menuItem);
+                return true;
+            }
+        });
+    }
 
     // Không cho bấm nút Back quay lại màn hình Đăng nhập
     @Override
@@ -132,46 +155,28 @@ public class ThongTinGiaoVien extends AppCompatActivity {
             return MethodChung.GET(urls[0]);
         }
 
-
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-
-            TextView txtma = findViewById(R.id.txtViewMaGV);
-            TextView txtten = findViewById(R.id.txtViewTenGV);
-            //hinh
-            TextView txtngaysinh = findViewById(R.id.txtViewNgaySinhGV);
-            TextView txtgioitinh = findViewById(R.id.txtViewGioiTinhGV);
-            TextView txtsdt = findViewById(R.id.txtViewSDTGV);
-            TextView txtemail = findViewById(R.id.txtViewEmailGV);
-            TextView txttrinhdo = findViewById(R.id.txtViewTrinhDoGV);
-            TextView txtchucvu = findViewById(R.id.txtViewChucVuGV);
-            TextView txttenkhoa = findViewById(R.id.txtViewKhoaGV);
+            TextView tenNavi = findViewById(R.id.txtViewTenNavi);
+            TextView lopNavi = findViewById(R.id.txtViewLopNavi);
+            TextView maNavi = findViewById(R.id.txtViewMaNavi);
 
             try {
                 JSONObject jsonObj = new JSONObject(result); // convert String to JSONObject
-
                 ma = jsonObj.getString("maNguoiDung");
                 ten = jsonObj.getString("tenNguoiDung");
                 hinh = jsonObj.getString("hinh");
                 ngaysinh = jsonObj.getString("ngaySinh");
                 gioitinh = jsonObj.getString("gioiTinh");
-                sdt = jsonObj.getString("sodienthoai");
-                email = jsonObj.getString("email");
                 trinhdo = jsonObj.getString("trinhDo");
                 chucvu = jsonObj.getString("chucVu");
                 tenkhoa = jsonObj.getString("tenKhoa");
 
-                txtma.setText(ma);
-                txtten.setText(ten);
-//hinh
-                txtngaysinh.setText(ngaysinh);
-                txtgioitinh.setText(gioitinh);
-                txtsdt.setText(sdt);
-                txtemail.setText(email);
-                txttrinhdo.setText(trinhdo);
-                txtchucvu.setText(chucvu);
-                txttenkhoa.setText(tenkhoa);
+
+                tenNavi.setText(ten);
+                lopNavi.setText(tenkhoa);
+                maNavi.setText(ma);
 
             } catch (JSONException e) {
                 e.printStackTrace();

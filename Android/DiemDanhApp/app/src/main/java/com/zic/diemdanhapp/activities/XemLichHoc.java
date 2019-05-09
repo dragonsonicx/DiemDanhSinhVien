@@ -5,11 +5,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 
 import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+
 import android.os.AsyncTask;
 import android.os.Handler;
-import android.support.v4.content.ContextCompat;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -41,21 +40,13 @@ public class XemLichHoc extends AppCompatActivity {
         ma = nhanpass.getStringExtra("ma");
         status = nhanpass.getStringExtra("status").toString();
 
-        //Kiểm tra coi có kết nối mạng hay không
-        if (isConnected()) {
-            Toast.makeText(this, "Is connected", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "nope", Toast.LENGTH_SHORT).show();
-        }
-
         if (status.equals("0"))
-            urlxemlichhoc = MethodChung.CreateURL() + "giaovien/xemLichDay/" + ma;
-        else if (status.equals("1"))
             urlxemlichhoc = MethodChung.CreateURL() + "sinhvien/xemLichDay/" + ma;
+        else if (status.equals("1"))
+            urlxemlichhoc = MethodChung.CreateURL() + "giaovien/xemLichDay/" + ma;
 
         //Thực hiện code Json
         new HttpAsyncTask().execute(urlxemlichhoc);
-
 
         // Hiện progress bar
         progressDialog = new ProgressDialog(XemLichHoc.this);
@@ -78,21 +69,10 @@ public class XemLichHoc extends AppCompatActivity {
                 progressDialog.dismiss();
 
             }
-        }, 2000);
+        }, 1000);
 
 
     }
-
-    //Hàm kiểm tra kết nối mạng
-    public boolean isConnected() {
-        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(XemLichHoc.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected())
-            return true;
-        else
-            return false;
-    }
-
 
     //Hàm xử lý JSON
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
@@ -110,7 +90,6 @@ public class XemLichHoc extends AppCompatActivity {
 
         }
     }
-
 
     // Tạo text view tương ứng
     private void CreateTextView(String result) {
@@ -170,7 +149,7 @@ public class XemLichHoc extends AppCompatActivity {
                             break;
                         case "Tối":
                             TextView txtView2toi = new TextView(this);
-                            CreateTextViewMonHoc(txtView2toi, row2chieu, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
+                            CreateTextViewMonHoc(txtView2toi, row2toi, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
                             break;
                         default:
                             break;
@@ -190,7 +169,7 @@ public class XemLichHoc extends AppCompatActivity {
                             break;
                         case "Tối":
                             TextView txtView3toi = new TextView(this);
-                            CreateTextViewMonHoc(txtView3toi, row3chieu, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
+                            CreateTextViewMonHoc(txtView3toi, row3toi, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
                             break;
                         default:
                             break;
@@ -210,7 +189,7 @@ public class XemLichHoc extends AppCompatActivity {
                             break;
                         case "Tối":
                             TextView txtView4toi = new TextView(this);
-                            CreateTextViewMonHoc(txtView4toi, row4chieu, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
+                            CreateTextViewMonHoc(txtView4toi, row4toi, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
                             break;
                         default:
                             break;
@@ -230,7 +209,7 @@ public class XemLichHoc extends AppCompatActivity {
                             break;
                         case "Tối":
                             TextView txtView5toi = new TextView(this);
-                            CreateTextViewMonHoc(txtView5toi, row5chieu, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
+                            CreateTextViewMonHoc(txtView5toi, row5toi, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
                             break;
                         default:
                             break;
@@ -250,7 +229,7 @@ public class XemLichHoc extends AppCompatActivity {
                             break;
                         case "Tối":
                             TextView txtView6toi = new TextView(this);
-                            CreateTextViewMonHoc(txtView6toi, row6chieu, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
+                            CreateTextViewMonHoc(txtView6toi, row6toi, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
                             break;
                         default:
                             break;
@@ -270,7 +249,7 @@ public class XemLichHoc extends AppCompatActivity {
                             break;
                         case "Tối":
                             TextView txtView7toi = new TextView(this);
-                            CreateTextViewMonHoc(txtView7toi, row7chieu, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
+                            CreateTextViewMonHoc(txtView7toi, row7toi, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
                             break;
                         default:
                             break;
@@ -290,7 +269,7 @@ public class XemLichHoc extends AppCompatActivity {
                             break;
                         case "Tối":
                             TextView txtView8toi = new TextView(this);
-                            CreateTextViewMonHoc(txtView8toi, row8chieu, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
+                            CreateTextViewMonHoc(txtView8toi, row8toi, tenmonhoc, giobatdau, gioketthuc, tenphonghoc);
                             break;
                         default:
                             break;

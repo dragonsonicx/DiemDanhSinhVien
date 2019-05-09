@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bangDiemDanh"
+        android:title="Chi tiết điểm danh"
+        android:icon="@drawable/bangdiemdanh"/>
+    <item
+        android:id="@+id/xemLichDay"
+        android:icon="@drawable/xemlich"
+        android:title="Xem lịch dạy/học" />
+    <item
+        android:id="@+id/doiMatKhau"
+        android:icon="@drawable/xemlich"
+        android:title="Đổi mật khẩu" />
+    <item
+        android:id="@+id/dangXuat"
+        android:title="Đăng xuất"
+        android:icon="@drawable/logout"/>
+</menu>

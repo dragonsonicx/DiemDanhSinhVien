@@ -1,19 +1,14 @@
 package com.zic.diemdanhapp.activities;
 
-import android.Manifest;
 import android.app.ProgressDialog;
-import android.content.pm.PackageManager;
-import android.location.LocationManager;
 import android.os.Handler;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
@@ -21,21 +16,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
 import com.zic.diemdanhapp.R;
 import com.zic.diemdanhapp.adapters.MethodChung;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.StatusLine;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -103,22 +88,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Sự kiện bấm nút Quên mật khẩu
-        Button btnFor = findViewById(R.id.btnForget);
+        TextView btnFor = findViewById(R.id.btnForget);
         btnFor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent chuyenlayoutForget = new Intent(getApplicationContext(), ForgetPass.class);
                 startActivity(chuyenlayoutForget);
-            }
-        });
-
-        // Sự kiện bấm nút Đổi mật khẩu
-        Button btnchange = findViewById(R.id.btnChangePass);
-        btnchange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent chuyenlayoutChange = new Intent(getApplicationContext(), ChangePass.class);
-                startActivity(chuyenlayoutChange);
             }
         });
     }
@@ -161,15 +136,13 @@ public class MainActivity extends AppCompatActivity {
                         Intent chuyenlayoutGV = new Intent(getApplicationContext(), ThongTinGiaoVien.class);
                         chuyenlayoutGV.putExtra("ma", ma);
                         startActivity((chuyenlayoutGV));
-                    }
-                    else if (status.equals("0")){
+                    } else if (status.equals("0")) {
                         Intent chuyenlayoutSV = new Intent(getApplicationContext(), ThongTinSinhVien.class);
                         chuyenlayoutSV.putExtra("ma", ma);
                         startActivity((chuyenlayoutSV));
                     }
                 } else
-                    Toast.makeText(getApplicationContext(), "Sai mật khẩu ~", Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(MainActivity.this, "Sai mật khẩu ~", Toast.LENGTH_SHORT).show();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
