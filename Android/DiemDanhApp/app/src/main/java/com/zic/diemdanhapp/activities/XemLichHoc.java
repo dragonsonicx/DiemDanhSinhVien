@@ -22,6 +22,7 @@ import com.zic.diemdanhapp.adapters.MethodChung;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 public class XemLichHoc extends AppCompatActivity {
 
@@ -40,10 +41,16 @@ public class XemLichHoc extends AppCompatActivity {
         ma = nhanpass.getStringExtra("ma");
         status = nhanpass.getStringExtra("status").toString();
 
-        if (status.equals("0"))
+        TextView txtviewtitle = findViewById(R.id.txtViewTitle);
+
+        if (status.equals("0")) {
             urlxemlichhoc = MethodChung.CreateURL() + "sinhvien/xemLichDay/" + ma;
-        else if (status.equals("1"))
+            txtviewtitle.setText("XEM LỊCH HỌC");
+
+        } else if (status.equals("1")) {
             urlxemlichhoc = MethodChung.CreateURL() + "giaovien/xemLichDay/" + ma;
+            txtviewtitle.setText("XEM LỊCH DẠY");
+        }
 
         //Thực hiện code Json
         new HttpAsyncTask().execute(urlxemlichhoc);

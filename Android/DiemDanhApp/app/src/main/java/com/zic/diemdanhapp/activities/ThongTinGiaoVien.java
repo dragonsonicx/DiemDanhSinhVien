@@ -107,6 +107,8 @@ public class ThongTinGiaoVien extends AppCompatActivity {
         switch (menuItem.getItemId()) {
             case R.id.bangDiemDanh:
                 Intent intentb = new Intent(ThongTinGiaoVien.this, ChiTietDiemDanh.class);
+                intentb.putExtra("ma", manhanduoc);
+                intentb.putExtra("status", "1");
                 startActivity(intentb);
                 break;
             case R.id.xemLichDay:

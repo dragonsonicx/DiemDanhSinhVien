@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:scrollbars="vertical">
@@ -13,20 +14,65 @@
             android:id="@+id/tableLichHoc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
             android:background="#000000"
             android:stretchColumns="1">
 
             <TableRow
-                android:id="@+id/ToolXemLich"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/IUHRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#ffffff"
-                android:orientation="vertical"
                 android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="187dp"
+                    android:layout_height="119dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/txtvDDSV"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.363"
+                    app:srcCompat="@drawable/logo_iuh" />
 
             </TableRow>
 
             // Row thứ 2
+
+            <TableRow
+                android:id="@+id/TitleRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/txtViewTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="Lịch học/dạy"
+                    android:textAlignment="center"
+                    android:textColor="#040750"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff">
+
+                <LinearLayout>
+
+                </LinearLayout>
+
+            </TableRow>
 
             <TableRow
                 android:id="@+id/row2"
@@ -395,7 +441,7 @@
                         android:id="@+id/rowT5Toi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_aqua"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -450,7 +496,7 @@
                         android:id="@+id/rowT6Sang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_aqua"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -471,7 +517,7 @@
                         android:id="@+id/rowT6Chieu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_aqua"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -492,7 +538,7 @@
                         android:id="@+id/rowT6Toi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_aqua"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -547,7 +593,7 @@
                         android:id="@+id/rowT7Sang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_aqua"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -568,7 +614,7 @@
                         android:id="@+id/rowT7Chieu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_aqua"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -589,7 +635,7 @@
                         android:id="@+id/rowT7Toi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_aqua"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -644,7 +690,7 @@
                         android:id="@+id/rowT8Sang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_aqua"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -665,7 +711,7 @@
                         android:id="@+id/rowT8Chieu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_aqua"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
@@ -686,7 +732,7 @@
                         android:id="@+id/rowT8Toi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_aqua"
+                        android:background="@drawable/row_xem_lich_white"
                         android:padding="10px">
 
                         <TextView
