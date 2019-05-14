@@ -290,12 +290,12 @@ public class XemLichHoc extends AppCompatActivity {
 
     //Hàm tạo môn học  trên lịch học
     private void CreateTextViewMonHoc(TextView t, TableRow r, String tenmonhoc, String giobatdau, String gioketthuc, String tenphonghoc) {
-        t.setWidth(500);
-        t.setHeight(300);
+        t.setWidth(300);
+        t.setHeight(200);
         t.setText(tenmonhoc + "\n" + "***********" + "\n" + giobatdau + " - " + gioketthuc + "\n" + "***********" + "\n" + tenphonghoc);
         t.setTextAlignment(TextView.TEXT_ALIGNMENT_CENTER);
         t.setTextColor(Color.parseColor("#040750"));
-        t.setTextSize(18);
+        t.setTextSize(10);
         t.setPadding(5, 5, 5, 5);
         r.addView(t);
     }

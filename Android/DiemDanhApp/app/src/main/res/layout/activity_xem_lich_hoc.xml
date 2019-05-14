@@ -1,757 +1,743 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:scrollbars="vertical">
 
     <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fillViewport="false">
 
-        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/tableLichHoc"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:background="#000000"
-            android:stretchColumns="1">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TableRow
-                android:id="@+id/IUHRow"
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/logo_iuh" />
+
+            <TextView
+                android:id="@+id/txtViewTitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ffffff"
-                android:padding="10dp">
+                android:paddingLeft="20dp"
+                android:paddingBottom="20dp"
+                android:text="Lịch học/dạy"
+                android:textAlignment="center"
+                android:textColor="#040750"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="187dp"
-                    android:layout_height="119dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toTopOf="@+id/txtvDDSV"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.363"
-                    app:srcCompat="@drawable/logo_iuh" />
-
-            </TableRow>
-
-            // Row thứ 2
-
-            <TableRow
-                android:id="@+id/TitleRow"
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/tableLichHoc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ffffff">
+                android:layout_marginLeft="20dp"
+                android:background="#000000"
+                android:stretchColumns="1">
 
-                <TextView
-                    android:id="@+id/txtViewTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:paddingBottom="20dp"
-                    android:text="Lịch học/dạy"
-                    android:textAlignment="center"
-                    android:textColor="#040750"
-                    android:textSize="40dp"
-                    android:textStyle="bold" />
-            </TableRow>
+                // Row thứ 2
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ffffff">
-
-                <LinearLayout>
-
-                </LinearLayout>
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/row2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#ffffff"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="300px"
+                <TableRow
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/ttgv_background"
-                    android:padding="4px"
-                    android:text="Thứ 2"
-                    android:textAlignment="center"
-                    android:textColor="#040750"
-                    android:textSize="30dp"
-                    android:textStyle="bold" />
+                    android:background="#ffffff">
 
+                    <LinearLayout>
 
-                // Row thứ 2 TableLayout Sáng Chiều Tối
+                    </LinearLayout>
 
-                <TableLayout
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="-5px">
+                    android:background="#ffffff"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                    //Sáng
+                    <TextView
+                        android:layout_width="100dp"                       
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ttgv_background"
+                        android:padding="4px"
+                        android:text="Thứ 2"
+                        android:textAlignment="center"
+                        android:textColor="#040750"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-                    <TableRow
-                        android:id="@+id/rowT2Sang"
-                        android:layout_width="match_parent"
+
+                    // Row thứ 2 TableLayout Sáng Chiều Tối
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
+                        android:paddingLeft="-5px">
 
-                        android:padding="10px">
+                        //Sáng
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Sáng"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        <TableRow
+                            android:id="@+id/rowT2Sang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
 
-                    //Chiều
+                            android:padding="10px">
 
-                    <TableRow
-                        android:id="@+id/rowT2Chieu"
-                        android:layout_width="match_parent"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Sáng"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                        //Chiều
+
+                        <TableRow
+                            android:id="@+id/rowT2Chieu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="10px"
+                                android:text="Chiều"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                        //Tối
+
+                        <TableRow
+                            android:id="@+id/rowT2Toi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Tối"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                </TableRow>
+
+
+                // Row thứ 3
+
+                <TableRow
+                    android:id="@+id/row3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="300px"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ttgv_background"
+                        android:padding="4px"
+                        android:text="Thứ 3"
+                        android:textAlignment="center"
+                        android:textColor="#040750"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    // Row thứ 3 TableLayout Sáng Chiều Tối
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                        android:paddingLeft="-5px">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="10px"
-                            android:text="Chiều"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Sáng
 
-                    //Tối
+                        <TableRow
+                            android:id="@+id/rowT3Sang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-                    <TableRow
-                        android:id="@+id/rowT2Toi"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Sáng"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Tối"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Chiều
 
-                </TableLayout>
+                        <TableRow
+                            android:id="@+id/rowT3Chieu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-            </TableRow>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="10px"
+                                android:text="Chiều"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                        //Tối
+
+                        <TableRow
+                            android:id="@+id/rowT3Toi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Tối"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                </TableRow>
 
 
-            // Row thứ 3
+                // Row thứ 4
 
-            <TableRow
-                android:id="@+id/row3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="300px"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/ttgv_background"
-                    android:padding="4px"
-                    android:text="Thứ 3"
-                    android:textAlignment="center"
-                    android:textColor="#040750"
-                    android:textSize="30dp"
-                    android:textStyle="bold" />
-
-                // Row thứ 3 TableLayout Sáng Chiều Tối
-
-                <TableLayout
+                <TableRow
+                    android:id="@+id/row4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="-5px">
+                    android:background="#ffffff"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                    //Sáng
+                    <TextView
+                        android:layout_width="300px"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ttgv_background"
+                        android:padding="4px"
+                        android:text="Thứ 4"
+                        android:textAlignment="center"
+                        android:textColor="#040750"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-                    <TableRow
-                        android:id="@+id/rowT3Sang"
-                        android:layout_width="match_parent"
+
+                    // Row thứ 4 TableLayout Sáng Chiều Tối
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                        android:paddingLeft="-5px">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Sáng"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Sáng
 
-                    //Chiều
+                        <TableRow
+                            android:id="@+id/rowT4Sang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-                    <TableRow
-                        android:id="@+id/rowT3Chieu"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Sáng"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="10px"
-                            android:text="Chiều"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Chiều
 
-                    //Tối
+                        <TableRow
+                            android:id="@+id/rowT4Chieu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-                    <TableRow
-                        android:id="@+id/rowT3Toi"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="10px"
+                                android:text="Chiều"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Tối"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Tối
 
-                </TableLayout>
+                        <TableRow
+                            android:id="@+id/rowT4Toi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-            </TableRow>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Tối"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
+                    </TableLayout>
 
-            // Row thứ 4
-
-            <TableRow
-                android:id="@+id/row4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#ffffff"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="300px"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/ttgv_background"
-                    android:padding="4px"
-                    android:text="Thứ 4"
-                    android:textAlignment="center"
-                    android:textColor="#040750"
-                    android:textSize="30dp"
-                    android:textStyle="bold" />
+                </TableRow>
 
 
-                // Row thứ 4 TableLayout Sáng Chiều Tối
+                // Row thứ 5
 
-                <TableLayout
+                <TableRow
+                    android:id="@+id/row5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="-5px">
+                    android:background="#ffffff"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                    //Sáng
+                    <TextView
+                        android:layout_width="300px"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ttgv_background"
+                        android:padding="4px"
+                        android:text="Thứ 5"
+                        android:textAlignment="center"
+                        android:textColor="#040750"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-                    <TableRow
-                        android:id="@+id/rowT4Sang"
-                        android:layout_width="match_parent"
+
+                    // Row thứ 5 TableLayout Sáng Chiều Tối
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                        android:paddingLeft="-5px">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Sáng"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Sáng
 
-                    //Chiều
+                        <TableRow
+                            android:id="@+id/rowT5Sang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-                    <TableRow
-                        android:id="@+id/rowT4Chieu"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Sáng"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="10px"
-                            android:text="Chiều"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Chiều
 
-                    //Tối
+                        <TableRow
+                            android:id="@+id/rowT5Chieu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-                    <TableRow
-                        android:id="@+id/rowT4Toi"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="10px"
+                                android:text="Chiều"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Tối"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Tối
 
-                </TableLayout>
+                        <TableRow
+                            android:id="@+id/rowT5Toi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-            </TableRow>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Tối"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
+                    </TableLayout>
 
-            // Row thứ 5
-
-            <TableRow
-                android:id="@+id/row5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#ffffff"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="300px"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/ttgv_background"
-                    android:padding="4px"
-                    android:text="Thứ 5"
-                    android:textAlignment="center"
-                    android:textColor="#040750"
-                    android:textSize="30dp"
-                    android:textStyle="bold" />
+                </TableRow>
 
 
-                // Row thứ 5 TableLayout Sáng Chiều Tối
+                // Row thứ 6
 
-                <TableLayout
+                <TableRow
+                    android:id="@+id/row6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="-5px">
+                    android:background="#ffffff"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                    //Sáng
+                    <TextView
+                        android:layout_width="300px"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ttgv_background"
+                        android:padding="4px"
+                        android:text="Thứ 6"
+                        android:textAlignment="center"
+                        android:textColor="#040750"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-                    <TableRow
-                        android:id="@+id/rowT5Sang"
-                        android:layout_width="match_parent"
+
+                    // Row thứ 2 TableLayout Sáng Chiều Tối
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                        android:paddingLeft="-5px">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Sáng"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Sáng
 
-                    //Chiều
+                        <TableRow
+                            android:id="@+id/rowT6Sang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-                    <TableRow
-                        android:id="@+id/rowT5Chieu"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Sáng"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="10px"
-                            android:text="Chiều"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Chiều
 
-                    //Tối
+                        <TableRow
+                            android:id="@+id/rowT6Chieu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-                    <TableRow
-                        android:id="@+id/rowT5Toi"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="10px"
+                                android:text="Chiều"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Tối"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Tối
 
-                </TableLayout>
+                        <TableRow
+                            android:id="@+id/rowT6Toi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-            </TableRow>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Tối"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
+                    </TableLayout>
 
-            // Row thứ 6
-
-            <TableRow
-                android:id="@+id/row6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#ffffff"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="300px"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/ttgv_background"
-                    android:padding="4px"
-                    android:text="Thứ 6"
-                    android:textAlignment="center"
-                    android:textColor="#040750"
-                    android:textSize="30dp"
-                    android:textStyle="bold" />
+                </TableRow>
 
 
-                // Row thứ 2 TableLayout Sáng Chiều Tối
+                // Row thứ 7
 
-                <TableLayout
+                <TableRow
+                    android:id="@+id/row7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="-5px">
+                    android:background="#ffffff"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                    //Sáng
+                    <TextView
+                        android:layout_width="300px"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ttgv_background"
+                        android:padding="4px"
+                        android:text="Thứ 7"
+                        android:textAlignment="center"
+                        android:textColor="#040750"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-                    <TableRow
-                        android:id="@+id/rowT6Sang"
-                        android:layout_width="match_parent"
+
+                    // Row thứ 7 TableLayout Sáng Chiều Tối
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                        android:paddingLeft="-5px">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Sáng"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Sáng
 
-                    //Chiều
+                        <TableRow
+                            android:id="@+id/rowT7Sang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-                    <TableRow
-                        android:id="@+id/rowT6Chieu"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Sáng"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="10px"
-                            android:text="Chiều"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Chiều
 
-                    //Tối
+                        <TableRow
+                            android:id="@+id/rowT7Chieu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-                    <TableRow
-                        android:id="@+id/rowT6Toi"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="10px"
+                                android:text="Chiều"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Tối"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Tối
 
-                </TableLayout>
+                        <TableRow
+                            android:id="@+id/rowT7Toi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-            </TableRow>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Tối"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
+                    </TableLayout>
 
-            // Row thứ 7
-
-            <TableRow
-                android:id="@+id/row7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#ffffff"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="300px"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/ttgv_background"
-                    android:padding="4px"
-                    android:text="Thứ 7"
-                    android:textAlignment="center"
-                    android:textColor="#040750"
-                    android:textSize="30dp"
-                    android:textStyle="bold" />
+                </TableRow>
 
 
-                // Row thứ 7 TableLayout Sáng Chiều Tối
+                // Row thứ 8 (XD)
 
-                <TableLayout
+                <TableRow
+                    android:id="@+id/row8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="-5px">
+                    android:background="#ffffff"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                    //Sáng
+                    <TextView
+                        android:layout_width="300px"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ttgv_background"
+                        android:padding="4px"
+                        android:text="Chủ nhật"
+                        android:textAlignment="center"
+                        android:textColor="#040750"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-                    <TableRow
-                        android:id="@+id/rowT7Sang"
-                        android:layout_width="match_parent"
+
+                    // Row Chủ nhật TableLayout Sáng Chiều Tối
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                        android:paddingLeft="-5px">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Sáng"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Sáng
 
-                    //Chiều
+                        <TableRow
+                            android:id="@+id/rowT8Sang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-                    <TableRow
-                        android:id="@+id/rowT7Chieu"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Sáng"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="10px"
-                            android:text="Chiều"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Chiều
 
-                    //Tối
+                        <TableRow
+                            android:id="@+id/rowT8Chieu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-                    <TableRow
-                        android:id="@+id/rowT7Toi"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="10px"
+                                android:text="Chiều"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Tối"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
+                        //Tối
 
-                </TableLayout>
+                        <TableRow
+                            android:id="@+id/rowT8Toi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/row_xem_lich_white"
+                            android:padding="10px">
 
-            </TableRow>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ttgv_background"
+                                android:padding="5px"
+                                android:text="Tối"
+                                android:textAlignment="center"
+                                android:textColor="#040750"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+                        </TableRow>
 
+                    </TableLayout>
 
-            // Row thứ 8 (XD)
+                </TableRow>
 
-            <TableRow
-                android:id="@+id/row8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#ffffff"
-                android:orientation="vertical"
-                android:padding="10dp">
+            </TableLayout>
 
-                <TextView
-                    android:layout_width="300px"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/ttgv_background"
-                    android:padding="4px"
-                    android:text="Chủ nhật"
-                    android:textAlignment="center"
-                    android:textColor="#040750"
-                    android:textSize="30dp"
-                    android:textStyle="bold" />
+        </LinearLayout>
 
-
-                // Row Chủ nhật TableLayout Sáng Chiều Tối
-
-                <TableLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="-5px">
-
-                    //Sáng
-
-                    <TableRow
-                        android:id="@+id/rowT8Sang"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Sáng"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                    //Chiều
-
-                    <TableRow
-                        android:id="@+id/rowT8Chieu"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="10px"
-                            android:text="Chiều"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                    //Tối
-
-                    <TableRow
-                        android:id="@+id/rowT8Toi"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/row_xem_lich_white"
-                        android:padding="10px">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ttgv_background"
-                            android:padding="5px"
-                            android:text="Tối"
-                            android:textAlignment="center"
-                            android:textColor="#040750"
-                            android:textSize="30dp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                </TableLayout>
-
-            </TableRow>
-
-        </TableLayout>
     </HorizontalScrollView>
 
 </ScrollView>
