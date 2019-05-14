@@ -32,7 +32,7 @@ public class NguoiDungDAO implements NguoiDungIDAO {
 			while(rs.next()) {
 				long maNguoiDung = rs.getLong("ma");
 				String tenNguoiDung = rs.getString("ten");
-				byte[] hinh = rs.getBytes("hinh");
+				String hinh = rs.getString("hinh");
 				Date ngayS = rs.getDate("ngaysinh");
 				String ngaySinh = dateFormat.format(ngayS);
 				String gioiTinh = rs.getString("gioitinh");
@@ -66,7 +66,7 @@ public class NguoiDungDAO implements NguoiDungIDAO {
 			smt.setLong(1, nguoiDung.getMaNguoiDung());
 			smt.setString(2, nguoiDung.getChucVu());
 			smt.setString(3, nguoiDung.getGioiTinh());
-			smt.setBytes(4, nguoiDung.getHinh());
+			smt.setString(4, nguoiDung.getHinh());
 			smt.setString(5, nguoiDung.getMatKhau());
 			smt.setString(6,nguoiDung.getNgaySinh());
 			smt.setInt(7, nguoiDung.getStatus());
@@ -89,7 +89,7 @@ public class NguoiDungDAO implements NguoiDungIDAO {
 			String sql = "update nguoidung set ten=?,hinh=?,ngaysinh=?,gioitinh=?,tenlop=?,trinhdo=?,chucvu=?,tenkhoa=?, matkhau=?, status=? where ma=?";
 			smt = con.prepareStatement(sql);
 			smt.setString(1, nguoiDung.getTenNguoiDung());
-			smt.setBytes(2, nguoiDung.getHinh());
+			smt.setString(2, nguoiDung.getHinh());
 			smt.setString(3,nguoiDung.getNgaySinh());
 			smt.setString(4, nguoiDung.getGioiTinh());
 			smt.setString(5, nguoiDung.getTenLop());
@@ -133,7 +133,7 @@ public class NguoiDungDAO implements NguoiDungIDAO {
 			ResultSet rs= smt.executeQuery();
 			while(rs.next()) {
 				String tenNguoiDung = rs.getString("ten");
-				byte[] hinh = rs.getBytes("hinh");
+				String hinh = rs.getString("hinh");
 				Date ngayS = rs.getDate("ngaysinh");
 				String ngaySinh = dateFormat.format(ngayS);
 				String gioiTinh = rs.getString("gioitinh");
@@ -168,7 +168,7 @@ public class NguoiDungDAO implements NguoiDungIDAO {
 			ResultSet rs= smt.executeQuery();
 			while(rs.next()) {
 				String tenNguoiDung = rs.getString("ten");
-				byte[] hinh = rs.getBytes("hinh");
+				String hinh = rs.getString("hinh");
 				Date ngayS = rs.getDate("ngaysinh");
 				String ngaySinh = dateFormat.format(ngayS);
 				String gioiTinh = rs.getString("gioitinh");

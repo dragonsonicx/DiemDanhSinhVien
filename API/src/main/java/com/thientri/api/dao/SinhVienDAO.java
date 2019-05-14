@@ -30,7 +30,7 @@ public class SinhVienDAO implements SinhVienIDAO{
 		PreparedStatement smt = null;
 		try {
 			Connection con = app.getConnection();
-			String sql = "SELECT n.ma, m.tenmonhoc,n.ten, p.tenphonghoc, c.buoihoc, c.giobatdau, c.gioketthuc, m.ngaybatdau, m.ngayketthuc, m.namhoc, m.hocky, c.thu FROM cahoc c, monhoc m, phonghoc p, nguoidung n, diemdanh d WHERE m.mamonhoc = d.mamonhoc AND d.masinhvien = n.ma AND c.maphonghoc = p.maphonghoc AND c.mamonhoc = m.mamonhoc AND n.ma = ? AND n.status= 0";
+			String sql = "SELECT n.ma, m.tenmonhoc,n.ten, p.tenphonghoc, c.buoihoc, c.giobatdau, c.gioketthuc, m.ngaybatdau, m.ngayketthuc, m.namhoc, m.hocky, c.thu FROM cahoc c, monhoc m, phonghoc p, nguoidung n, diemdanh d WHERE m.mamonhoc = d.mamonhoc AND d.masinhvien = n.ma AND c.maphonghoc = p.maphonghoc AND c.mamonhoc = m.mamonhoc AND n.ma = ? AND n.status= 0 ORDER BY c.giobatdau";
 			smt = con.prepareStatement(sql);
 			smt.setLong(1, maNguoiDung);
 			ResultSet rs= smt.executeQuery();

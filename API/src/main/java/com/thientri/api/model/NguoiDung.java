@@ -11,7 +11,7 @@ public class NguoiDung implements Serializable{
 
 		private String tenNguoiDung;
 		
-		private byte[] hinh;
+		private String hinh;
 		
 		private String ngaySinh;
 		
@@ -33,7 +33,7 @@ public class NguoiDung implements Serializable{
 
 		private int status;
 
-		public NguoiDung(long maNguoiDung, String tenNguoiDung, byte[] hinh, String ngaySinh, String sodienthoai,
+		public NguoiDung(long maNguoiDung, String tenNguoiDung, String hinh, String ngaySinh, String sodienthoai,
 				String email, String gioiTinh, String tenLop, String trinhDo, String chucVu, String tenKhoa,
 				String matKhau, int status) {
 			super();
@@ -68,11 +68,11 @@ public class NguoiDung implements Serializable{
 			this.tenNguoiDung = tenNguoiDung;
 		}
 
-		public byte[] getHinh() {
+		public String getHinh() {
 			return hinh;
 		}
 
-		public void setHinh(byte[] hinh) {
+		public void setHinh(String hinh) {
 			this.hinh = hinh;
 		}
 

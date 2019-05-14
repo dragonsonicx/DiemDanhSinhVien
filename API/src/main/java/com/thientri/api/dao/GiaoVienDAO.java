@@ -18,6 +18,7 @@ import com.thientri.api.config.ApplicationContextConfig;
 import com.thientri.api.idao.GiaoVienIDAO;
 import com.thientri.api.model.ChiTietDiemDanh;
 import com.thientri.api.model.Lich;
+import com.thientri.api.model.MonHoc;
 import com.thientri.api.model.MonHocHienTai;
 
 @Repository
@@ -31,7 +32,7 @@ public class GiaoVienDAO implements GiaoVienIDAO{
 		PreparedStatement smt = null;
 		try {
 			Connection con = app.getConnection();
-			String sql = "SELECT n.ma, m.tenmonhoc,n.ten, p.tenphonghoc, c.buoihoc, c.giobatdau, c.gioketthuc, m.ngaybatdau, m.ngayketthuc, m.namhoc, m.hocky, c.thu FROM cahoc c, monhoc m, phonghoc p, nguoidung n WHERE m.magiaovien = n.ma AND c.maphonghoc = p.maphonghoc AND c.mamonhoc = m.mamonhoc AND n.ma = ? AND n.status= 1";
+			String sql = "SELECT n.ma, m.tenmonhoc,n.ten, p.tenphonghoc, c.buoihoc, c.giobatdau, c.gioketthuc, m.ngaybatdau, m.ngayketthuc, m.namhoc, m.hocky, c.thu FROM cahoc c, monhoc m, phonghoc p, nguoidung n WHERE m.magiaovien = n.ma AND c.maphonghoc = p.maphonghoc AND c.mamonhoc = m.mamonhoc AND n.ma = ? AND n.status= 1 ORDER BY c.giobatdau";
 			smt = con.prepareStatement(sql);
 			smt.setLong(1, maNguoiDung);
 			ResultSet rs= smt.executeQuery();
@@ -61,14 +62,15 @@ public class GiaoVienDAO implements GiaoVienIDAO{
 		return list;
 	}
 
-	public List<ChiTietDiemDanh> xemChiTietDiemDanh(long maMonHoc) {
+	public List<ChiTietDiemDanh> xemChiTietDiemDanh(String tenMonHoc, String ngayDiemDanh) {
 		ArrayList<ChiTietDiemDanh> list = new ArrayList<ChiTietDiemDanh>() ;
 		PreparedStatement smt = null;
 		try {
 			Connection con = app.getConnection();
-			String sql = "SELECT n.ma, n.ten, n.tenlop, n.hinh, n.gioitinh, c.ngaydiemdanh, c.status , c.lydonghi FROM nguoidung n, diemdanh d, chitietdiemdanh c WHERE c.madiemdanh = d.madiemdanh AND d.masinhvien =n.ma AND d.mamonhoc = ? AND n.status = 0";
+			String sql = "SELECT n.ma, n.ten, n.tenlop, n.hinh, n.gioitinh, c.status , c.lydonghi FROM nguoidung n, diemdanh d, chitietdiemdanh c WHERE c.madiemdanh = d.madiemdanh AND d.masinhvien =n.ma AND d.mamonhoc = ? AND c.ngaydiemdanh = ? AND n.status = 0";
 			smt = con.prepareStatement(sql);
-			smt.setLong(1, maMonHoc);
+			smt.setString(1, tenMonHoc);
+			smt.setString(2, ngayDiemDanh);
 			ResultSet rs= smt.executeQuery();
 			while(rs.next()) {
 				long maSinhVien = rs.getLong("ma");
@@ -79,9 +81,7 @@ public class GiaoVienDAO implements GiaoVienIDAO{
 
 				byte[] hinh = rs.getBytes("hinh");
 				
-				String gioitinh = rs.getString("hinh");
-				
-				String ngayDiemDanh = rs.getString("gioitinh");
+				String gioitinh = rs.getString("gioitinh");
 				
 				String lyDoNghi = rs.getString("lydonghi");
 				
@@ -194,6 +194,83 @@ public class GiaoVienDAO implements GiaoVienIDAO{
 		}
 		      
 		return monHocHienTai;
+	}
+
+	public List<MonHoc> getTenMonHoc(long maGiaoVien) {
+		PreparedStatement smt = null;
+		List<MonHoc> listMonHoc = new ArrayList<MonHoc>();
+		MonHoc m = null;
+		String tenmonhoc= null;
+		long mamonhoc;
+		
+		try {
+			Connection con = app.getConnection();
+			String sql = "SELECT m.mamonhoc , m.tenmonhoc FROM monhoc m , nguoidung n WHERE m.magiaovien = n.ma AND n.ma = ? AND n.status = 1";
+			smt = con.prepareStatement(sql);
+			smt.setLong(1, maGiaoVien);
+			ResultSet rs= smt.executeQuery();
+			while(rs.next()) {
+				mamonhoc = rs.getLong("mamonhoc");
+				tenmonhoc = rs.getString("tenmonhoc");
+				m = new MonHoc(mamonhoc, tenmonhoc);
+				listMonHoc.add(m);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listMonHoc;
+	}
+
+	public List<String> getNgayHoc(long maGiaoVien, long maMonHoc) {
+		PreparedStatement smt = null;
+		List<String> list = new ArrayList<String>();
+		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		String ngaybatdau = null;
+		String ngayketthuc = null;
+		String thu = null;
+		try {
+			Connection con = app.getConnection();
+			String sql = "SELECT m.ngaybatdau, m.ngayketthuc,c.thu FROM monhoc m , nguoidung n, cahoc c WHERE m.magiaovien = n.ma AND n.status = 1 AND m.mamonhoc = c.macahoc AND n.ma = ? AND m.mamonhoc = ?";
+			smt = con.prepareStatement(sql);
+			smt.setLong(1, maGiaoVien);
+			smt.setLong(2, maMonHoc);
+			ResultSet rs= smt.executeQuery();
+			while(rs.next()) {
+				ngaybatdau = rs.getString("ngaybatdau");
+				ngayketthuc = rs.getString("ngayketthuc");
+				thu = rs.getString("thu");
+			}
+			
+
+			DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			
+			LocalDate start = LocalDate.parse(ngaybatdau);
+			LocalDate end = LocalDate.parse(ngayketthuc);
+			Calendar calendar = Calendar.getInstance();
+
+
+			Date  ngayBatDau = simpleDateFormat.parse(ngaybatdau);
+			Date  ngayKetThuc = simpleDateFormat.parse(ngayketthuc);
+
+			long getDiff = ngayKetThuc.getTime() - ngayBatDau.getTime();
+
+			long getDaysDiff = getDiff / (24 * 60 * 60 * 1000);
+			for (long i = 0; i < getDaysDiff; i++) {
+				
+				start=start.plusDays(1);
+				Date ngay = simpleDateFormat.parse(start.toString());
+		        calendar.setTime(ngay);
+		        String thuOfDay =calendar.get(Calendar.DAY_OF_WEEK)+"";
+				if(thuOfDay.trim().equals(thu)) {
+					list.add(start.toString());
+				}
+			}
+		
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 }
