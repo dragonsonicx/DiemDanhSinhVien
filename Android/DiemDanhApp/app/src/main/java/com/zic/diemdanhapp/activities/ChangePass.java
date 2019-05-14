@@ -20,9 +20,9 @@ import org.json.JSONObject;
 
 public class ChangePass extends AppCompatActivity {
 
-    String oldpass, ma, manhanduoc, status;
+    private String oldpass, ma, manhanduoc, status;
 
-    ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

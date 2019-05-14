@@ -29,7 +29,7 @@ public class ThongTinSinhVien extends AppCompatActivity {
 
     String manhanduoc;
 
-    String ma, ten, hinh, ngaysinh, gioitinh, sdt, email, tenlop, trinhdo, chucvu, tenkhoa;
+    String ma, ten, hinh, ngaysinh, gioitinh, sdt, email, tenlop, trinhdo, chucvu, tenkhoa, pass;
 
     ProgressDialog progressDialog;
     DrawerLayout drawerLayout;
@@ -93,7 +93,12 @@ public class ThongTinSinhVien extends AppCompatActivity {
         btnqr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), QuetMaQR.class));
+                Intent intentqr = new Intent(ThongTinSinhVien.this, QuetMaQR.class);
+                intentqr.putExtra("ma", manhanduoc);
+                intentqr.putExtra("status", "0");
+                intentqr.putExtra("pass", pass);
+                startActivity(intentqr);
+
             }
         });
     }
@@ -175,6 +180,7 @@ public class ThongTinSinhVien extends AppCompatActivity {
                 trinhdo = jsonObj.getString("trinhDo");
                 chucvu = jsonObj.getString("chucVu");
                 tenkhoa = jsonObj.getString("tenKhoa");
+                pass = jsonObj.getString("matKhau");
 
                 tenNavi.setText(ten);
                 lopNavi.setText(tenlop);
