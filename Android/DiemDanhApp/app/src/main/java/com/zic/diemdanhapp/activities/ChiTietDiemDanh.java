@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class ChiTietDiemDanh extends AppCompatActivity {
 
-    String manhanduoc, status, urlmonhoc,urlngayhoc, mamonhoc;
+    String manhanduoc, status, urlmonhoc, urlngayhoc, mamonhoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,25 +38,59 @@ public class ChiTietDiemDanh extends AppCompatActivity {
         status = nhanpass.getStringExtra("status").toString();
 
         // Ân mọi thứ trừ logo và spinner chọn môn học
-        Spinner spinnermonhoc = findViewById(R.id.spinMonHoc);
+        final Spinner spinnermonhoc = findViewById(R.id.spinMonHoc);
         spinnermonhoc.setVisibility(View.VISIBLE);
-        TableLayout table = findViewById(R.id.tableLichHoc);
+        final TableLayout table = findViewById(R.id.tableLichHoc);
         table.setVisibility(View.INVISIBLE);
-        Spinner spinnerngay = findViewById(R.id.spinNgay);
+        final Spinner spinnerngay = findViewById(R.id.spinNgay);
         spinnerngay.setVisibility(View.INVISIBLE);
-        Button btnin = findViewById(R.id.btnInDiemDanh);
+        final Button btnin = findViewById(R.id.btnInDiemDanh);
         btnin.setVisibility(View.INVISIBLE);
-        Button btncommit = findViewById(R.id.btnCommit);
+        final Button btncommit = findViewById(R.id.btnCommit);
         btncommit.setVisibility(View.INVISIBLE);
+
+        final Button btngomonhoc = findViewById(R.id.btnGoTenMonHoc);
+        final Button btngongay = findViewById(R.id.btnGoNgay);
+
+        btngongay.setVisibility(View.INVISIBLE);
 
         if (status.equals("1")) {
             urlmonhoc = "giaovien/getTenMonHoc/" + manhanduoc;
             new HttpAsyncTaskMonHoc().execute(MethodChung.CreateURL() + urlmonhoc);
-            spinnermonhoc.setOnItemSelectedListener(new MyProcessEventMonHoc());
-
-            urlngayhoc = MethodChung.CreateURL() + "giaovien/getNgayHoc/" + manhanduoc + "/" + "1";
-            new HttpAsyncTaskNgay().execute(urlngayhoc);
         }
+
+        // Sự kiện bấm button Go của spinner môn học
+        btngomonhoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (status.equals("1")) {
+                    urlngayhoc = MethodChung.CreateURL() + "giaovien/getNgayHoc/" + manhanduoc + "/" + "1";
+                    new HttpAsyncTaskNgay().execute(urlngayhoc);
+
+                    btngongay.setVisibility(View.VISIBLE);
+                    spinnerngay.setVisibility(View.VISIBLE);
+
+                    btnin.setVisibility(View.INVISIBLE);
+                    btncommit.setVisibility(View.INVISIBLE);
+                    table.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        // Sự kiện bấm button Go của spinner ngày học
+        btngongay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (status.equals("1")) {
+                    urlngayhoc = MethodChung.CreateURL() + "giaovien/getNgayHoc/10052121/1";
+                    new HttpAsyncTaskNgay().execute(urlngayhoc);
+
+                    btnin.setVisibility(View.VISIBLE);
+                    btncommit.setVisibility(View.VISIBLE);
+                    table.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
     }
 
@@ -98,34 +132,34 @@ public class ChiTietDiemDanh extends AppCompatActivity {
         }
     }
 
-    //Hàm xử lý onListener của spinner môn học
-    private class MyProcessEventMonHoc implements AdapterView.OnItemSelectedListener {
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            Object item = parent.getItemAtPosition(position).toString();
-            //Nếu spinner trống
-            if (((String) item).isEmpty()) {
-                Toast.makeText(ChiTietDiemDanh.this, "Lỗi ~", Toast.LENGTH_SHORT).show();
-                TableLayout table = findViewById(R.id.tableLichHoc);
-                table.setVisibility(View.INVISIBLE);
-                Spinner spinnerngay = findViewById(R.id.spinNgay);
-                spinnerngay.setVisibility(View.INVISIBLE);
-                Button btnin = findViewById(R.id.btnInDiemDanh);
-                btnin.setVisibility(View.INVISIBLE);
-                Button btncommit = findViewById(R.id.btnCommit);
-                btncommit.setVisibility(View.INVISIBLE);
-            } else {
-                Spinner spinnerngay = findViewById(R.id.spinNgay);
-                spinnerngay.setVisibility(View.VISIBLE);
-            }
-
-        }
-
-        //Nếu không chọn gì cả
-        public void onNothingSelected(AdapterView<?> arg0) {
-
-        }
-    }
+//    //Hàm xử lý onListener của spinner môn học
+//    private class MyProcessEventMonHoc implements AdapterView.OnItemSelectedListener {
+//        @Override
+//        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//            Object item = parent.getItemAtPosition(position).toString();
+//            //Nếu spinner trống
+//            if (((String) item).isEmpty()) {
+//                Toast.makeText(ChiTietDiemDanh.this, "Lỗi ~", Toast.LENGTH_SHORT).show();
+//                TableLayout table = findViewById(R.id.tableLichHoc);
+//                table.setVisibility(View.INVISIBLE);
+//                Spinner spinnerngay = findViewById(R.id.spinNgay);
+//                spinnerngay.setVisibility(View.INVISIBLE);
+//                Button btnin = findViewById(R.id.btnInDiemDanh);
+//                btnin.setVisibility(View.INVISIBLE);
+//                Button btncommit = findViewById(R.id.btnCommit);
+//                btncommit.setVisibility(View.INVISIBLE);
+//            } else {
+//                Spinner spinnerngay = findViewById(R.id.spinNgay);
+//                spinnerngay.setVisibility(View.VISIBLE);
+//            }
+//
+//        }
+//
+//        //Nếu không chọn gì cả
+//        public void onNothingSelected(AdapterView<?> arg0) {
+//
+//        }
+//    }
 
 
     //Hàm xử lý JSON ngày
@@ -145,19 +179,19 @@ public class ChiTietDiemDanh extends AppCompatActivity {
             Spinner spinnerngayhoc = findViewById(R.id.spinNgay);
 
             try {
+                Toast.makeText(ChiTietDiemDanh.this, "Yolo", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChiTietDiemDanh.this, manhanduoc, Toast.LENGTH_SHORT).show();
                 JSONArray array = new JSONArray(result);
-
                 for (int i = 0; i < array.length(); i++) {
-                    JSONObject obj = array.getJSONObject(i);
-                    listngayhoc.add(obj.toString());
+                    String ngay = array.get(i).toString();
+
+                    listngayhoc.add(ngay);
                 }
 
                 //Thêm môn hoc vào spinner tên môn học
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, listngayhoc);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(ChiTietDiemDanh.this, android.R.layout.simple_spinner_item, listngayhoc);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerngayhoc.setAdapter(adapter);
-
-                Toast.makeText(ChiTietDiemDanh.this, "Json ngày thành c6ng ~", Toast.LENGTH_SHORT).show();
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -166,37 +200,37 @@ public class ChiTietDiemDanh extends AppCompatActivity {
         }
     }
 
-    //Hàm xử lý onListener của spinner ngày
-    private class MyProcessEventNgay implements AdapterView.OnItemSelectedListener {
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            Object item = parent.getItemAtPosition(position).toString();
-            //Nếu spinner trống
-            if (((String) item).isEmpty()) {
-                Toast.makeText(ChiTietDiemDanh.this, "Lỗi ~", Toast.LENGTH_SHORT).show();
-                TableLayout table = findViewById(R.id.tableLichHoc);
-                table.setVisibility(View.INVISIBLE);
-                Spinner spinnerngay = findViewById(R.id.spinNgay);
-                spinnerngay.setVisibility(View.VISIBLE);
-                Button btnin = findViewById(R.id.btnInDiemDanh);
-                btnin.setVisibility(View.INVISIBLE);
-                Button btncommit = findViewById(R.id.btnCommit);
-                btncommit.setVisibility(View.INVISIBLE);
-            } else {
-                Spinner spinnerngay = findViewById(R.id.spinNgay);
-                spinnerngay.setVisibility(View.VISIBLE);
-                ((String) item).substring(((String) item).indexOf("{") + 1);
-                ((String) item).substring(0, ((String) item).indexOf("}"));
-                mamonhoc = item.toString();
-                Toast.makeText(ChiTietDiemDanh.this, mamonhoc, Toast.LENGTH_SHORT).show();
-                new HttpAsyncTaskNgay().execute(MethodChung.CreateURL() + manhanduoc + "/" + mamonhoc);
-            }
-
-        }
-
-        //Nếu không chọn gì cả
-        public void onNothingSelected(AdapterView<?> arg0) {
-
-        }
-    }
+//    //Hàm xử lý onListener của spinner ngày
+//    private class MyProcessEventNgay implements AdapterView.OnItemSelectedListener {
+//        @Override
+//        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//            Object item = parent.getItemAtPosition(position).toString();
+//            //Nếu spinner trống
+//            if (((String) item).isEmpty()) {
+//                Toast.makeText(ChiTietDiemDanh.this, "Lỗi ~", Toast.LENGTH_SHORT).show();
+//                TableLayout table = findViewById(R.id.tableLichHoc);
+//                table.setVisibility(View.INVISIBLE);
+//                Spinner spinnerngay = findViewById(R.id.spinNgay);
+//                spinnerngay.setVisibility(View.VISIBLE);
+//                Button btnin = findViewById(R.id.btnInDiemDanh);
+//                btnin.setVisibility(View.INVISIBLE);
+//                Button btncommit = findViewById(R.id.btnCommit);
+//                btncommit.setVisibility(View.INVISIBLE);
+//            } else {
+//                Spinner spinnerngay = findViewById(R.id.spinNgay);
+//                spinnerngay.setVisibility(View.VISIBLE);
+//                ((String) item).substring(((String) item).indexOf("{") + 1);
+//                ((String) item).substring(0, ((String) item).indexOf("}"));
+//                mamonhoc = item.toString();
+//                Toast.makeText(ChiTietDiemDanh.this, mamonhoc, Toast.LENGTH_SHORT).show();
+//                new HttpAsyncTaskNgay().execute(MethodChung.CreateURL() + manhanduoc + "/" + mamonhoc);
+//            }
+//
+//        }
+//
+//        //Nếu không chọn gì cả
+//        public void onNothingSelected(AdapterView<?> arg0) {
+//
+//        }
+//    }
 }
