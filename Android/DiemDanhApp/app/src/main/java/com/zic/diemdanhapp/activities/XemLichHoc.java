@@ -28,6 +28,8 @@ public class XemLichHoc extends AppCompatActivity {
 
     String ma, status, urlxemlichhoc;
 
+    String monhoc;
+
     ProgressDialog progressDialog;
 
     @Override
@@ -53,7 +55,7 @@ public class XemLichHoc extends AppCompatActivity {
         }
 
         //Thực hiện code Json
-        new HttpAsyncTask().execute(urlxemlichhoc);
+        new HttpAsyncTaskLichHoc().execute(urlxemlichhoc);
 
         // Hiện progress bar
         progressDialog = new ProgressDialog(XemLichHoc.this);
@@ -81,8 +83,8 @@ public class XemLichHoc extends AppCompatActivity {
 
     }
 
-    //Hàm xử lý JSON
-    private class HttpAsyncTask extends AsyncTask<String, Void, String> {
+    //Hàm xử lý JSON hiện lich học/dạy
+    private class HttpAsyncTaskLichHoc extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
 
