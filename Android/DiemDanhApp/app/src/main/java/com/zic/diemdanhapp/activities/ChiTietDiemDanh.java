@@ -96,7 +96,7 @@ public class ChiTietDiemDanh extends AppCompatActivity {
                 }
             }
         });
-        
+
         // Sự kiện bấm button Go của spinner ngày học
         btngongay.setOnClickListener(new View.OnClickListener() {
             @Override

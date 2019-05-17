@@ -1,22 +1,29 @@
 package com.zic.diemdanhapp.activities;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Button;
-import android.content.Intent;
 
 import com.zic.diemdanhapp.R;
+import com.zic.diemdanhapp.adapters.GMailSender;
+import com.zic.diemdanhapp.adapters.MethodChung;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class ForgetPass extends AppCompatActivity {
 
-    String pass;
+    String ma, url, sdt, email, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,105 +31,124 @@ public class ForgetPass extends AppCompatActivity {
         setContentView(R.layout.activity_forget_pass);
         getSupportActionBar().hide();
 
-//        Intent nhanpass = getIntent();
-//        pass = nhanpass.getStringExtra("oldpass");
-//
-//        //Lấy item vào spinner "cách lấy lại mật khẩu" từ app\res\values\strings.xml
-//        Spinner spinFor = findViewById(R.id.spinForget);
-//        ArrayAdapter<CharSequence> spinArrayFor = ArrayAdapter.createFromResource(this, R.array.spinForget, android.R.layout.simple_spinner_item);
-//        spinArrayFor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinFor.setAdapter(spinArrayFor);
-//        spinFor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            //Sự kiện chạy khi có item được chọn trên spinner "cách lấy lại mật khẩu"
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                String text = (String) parent.getItemAtPosition(position);
-//                Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
-//
-//                EditText editsdt = findViewById(R.id.editSDT);
-//                EditText editemail = findViewById(R.id.editEmail);
-//                TextView txtch = findViewById(R.id.txtCH);
-//                Spinner spinch = findViewById(R.id.spinCH);
-//                EditText editch = findViewById(R.id.editCTL);
-//
-//                //Hiện\Ẩn EditText, Spinner hoặc TextView tuỳ theo lựa chọn trên
-//                if (text.equals("SĐT")) {
-//                    editsdt.setVisibility(view.VISIBLE);
-//                    editemail.setVisibility(view.INVISIBLE);
-//                    txtch.setVisibility(view.INVISIBLE);
-//                    spinch.setVisibility(view.INVISIBLE);
-//                    editch.setVisibility(view.INVISIBLE);
-//                } else if (text.equals("Email")) {
-//                    editsdt.setVisibility(view.INVISIBLE);
-//                    editemail.setVisibility(view.VISIBLE);
-//                    txtch.setVisibility(view.INVISIBLE);
-//                    spinch.setVisibility(view.INVISIBLE);
-//                    editch.setVisibility(view.INVISIBLE);
-//                } else {
-//                    editsdt.setVisibility(view.INVISIBLE);
-//                    editemail.setVisibility(view.INVISIBLE);
-//                    txtch.setVisibility(view.VISIBLE);
-//                    spinch.setVisibility(view.VISIBLE);
-//                    editch.setVisibility(view.VISIBLE);
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-//
-//        //Lấy item vào spinner "câu hỏi bí mật" từ app\res\values\strings.xml
-//        Spinner spinCauHoi = findViewById(R.id.spinCH);
-//        ArrayAdapter<CharSequence> spinArrayCH = ArrayAdapter.createFromResource(this, R.array.spinCH, android.R.layout.simple_spinner_item);
-//        spinArrayCH.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinCauHoi.setAdapter(spinArrayCH);
-//        spinCauHoi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override //Sự kiện chạy khi có item được chọn trên spinner "câu hỏi bí mật"
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Spinner spinch1 = findViewById(R.id.spinCH);
-//                if (spinch1.getVisibility() == view.VISIBLE) {
-//                    String text = (String) parent.getItemAtPosition(position);
-//                    Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-//
-//        // Sự kiện bấm nút Huỷ
-//        Button btnhuy = findViewById(R.id.btnHuy);
-//        btnhuy.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent chuyenlayoutMain = new Intent(getApplicationContext(), MainActivity.class);
-//                chuyenlayoutMain.putExtra("newpass", pass);
-//                startActivity(chuyenlayoutMain);
-//            }
-//        });
-//
-//        // Sự kiện bấm nút Tiếp tục
-//        Button btntieptuc = findViewById(R.id.btnTiep);
-//        btntieptuc.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                EditText editnewpass = findViewById(R.id.editNewPassForget);
-//                if (editnewpass.getText().toString().isEmpty()) {
-//                    Toast.makeText(getApplicationContext(), "Chưa nhập mật khẩu mới kìa ~", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Intent chuyenlayoutMain = new Intent(getApplicationContext(), MainActivity.class);
-//                    chuyenlayoutMain.putExtra("newpass", editnewpass.getText().toString());
-//
-//                    startActivity((chuyenlayoutMain));
-//                }
-//            }
-//        });
+        final EditText editma = findViewById(R.id.editMa);
+        final Spinner spin = findViewById(R.id.spinForget);
+        final EditText editsdt = findViewById(R.id.editSDT);
+        final EditText editemail = findViewById(R.id.editEmail);
+        final TextView passforget = findViewById(R.id.editPassForget);
+        final TextView labelmk = findViewById(R.id.LabelMK);
 
+        editsdt.setVisibility(View.INVISIBLE);
+        editemail.setVisibility(View.INVISIBLE);
+        passforget.setVisibility(View.INVISIBLE);
+        labelmk.setVisibility(View.INVISIBLE);
+
+        // Sự kiện bấm nút Huỷ
+        Button btnhuy = findViewById(R.id.btnHuy);
+        btnhuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent chuyenlayoutMain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(chuyenlayoutMain);
+            }
+        });
+
+        // Sự kiện bấm nút Tiếp tục
+        Button btntieptuc = findViewById(R.id.btnTiep);
+        btntieptuc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (spin.getSelectedItem().toString().isEmpty())
+                    Toast.makeText(ForgetPass.this, "Xin mời chọn cách thức lấy lại mật khẩu", Toast.LENGTH_SHORT).show();
+                else if (editma.getText().toString().isEmpty())
+                    Toast.makeText(ForgetPass.this, "Thiếu thông tin", Toast.LENGTH_SHORT).show();
+
+                url = MethodChung.CreateURL() + "nguoidung/findById/" + editma.getText().toString();
+                new HttpAsyncTask().execute(url);
+            }
+        });
+
+
+        //Lấy item vào spinner "cách lấy lại mật khẩu" từ app\res\values\strings.xml
+        Spinner spinFor = findViewById(R.id.spinForget);
+        ArrayAdapter<CharSequence> spinArrayFor = ArrayAdapter.createFromResource(this, R.array.spinForget, android.R.layout.simple_spinner_item);
+        spinArrayFor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinFor.setAdapter(spinArrayFor);
+        spinFor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            //Sự kiện chạy khi có item được chọn trên spinner "cách lấy lại mật khẩu"
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String text = (String) parent.getItemAtPosition(position);
+                Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+
+                //Hiện\Ẩn EditText, Spinner hoặc TextView tuỳ theo lựa chọn trên
+                if (text.equals("SĐT")) {
+                    editsdt.setVisibility(View.VISIBLE);
+                    editemail.setVisibility(View.INVISIBLE);
+                    passforget.setVisibility(View.INVISIBLE);
+                    labelmk.setVisibility(View.INVISIBLE);
+                } else if (text.equals("Email")) {
+                    editsdt.setVisibility(View.INVISIBLE);
+                    editemail.setVisibility(View.VISIBLE);
+                    passforget.setVisibility(View.INVISIBLE);
+                    labelmk.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                editsdt.setVisibility(View.INVISIBLE);
+                editemail.setVisibility(View.INVISIBLE);
+                passforget.setVisibility(View.INVISIBLE);
+                labelmk.setVisibility(View.INVISIBLE);
+            }
+        });
     }
 
+    private class HttpAsyncTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+
+            return MethodChung.GET(urls[0]);
+        }
+
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(String result) {
+            final EditText editsdt = findViewById(R.id.editSDT);
+            final EditText editemail = findViewById(R.id.editEmail);
+            final TextView passforget = findViewById(R.id.editPassForget);
+            final TextView labelmk = findViewById(R.id.LabelMK);
+
+            try {
+                JSONObject jsonObj = new JSONObject(result); // convert String to JSONObject
+                email = jsonObj.getString("email");
+                sdt = jsonObj.getString("sodienthoai");
+                pass = jsonObj.getString("matKhau");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            if (editemail.getVisibility() == View.VISIBLE) {
+                if (editemail.getText().toString().equals(email)) {
+                    passforget.setText(pass);
+                    passforget.setVisibility(View.VISIBLE);
+                    labelmk.setVisibility(View.VISIBLE);
+                } else {
+                    Toast.makeText(ForgetPass.this, "Sai thông tin", Toast.LENGTH_SHORT).show();
+                }
+            } else if (editsdt.getVisibility() == View.VISIBLE) {
+                if (editsdt.getText().toString().equals(sdt)) {
+                    passforget.setText(pass);
+                    passforget.setVisibility(View.VISIBLE);
+                    labelmk.setVisibility(View.VISIBLE);
+                } else {
+                    Toast.makeText(ForgetPass.this, "Sai thông tin", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+
+    }
 
 }

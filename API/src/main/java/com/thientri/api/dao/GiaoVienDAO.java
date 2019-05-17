@@ -62,14 +62,14 @@ public class GiaoVienDAO implements GiaoVienIDAO{
 		return list;
 	}
 
-	public List<ChiTietDiemDanh> xemChiTietDiemDanh(String tenMonHoc, String ngayDiemDanh) {
+	public List<ChiTietDiemDanh> xemChiTietDiemDanh(long maMonHoc, String ngayDiemDanh) {
 		ArrayList<ChiTietDiemDanh> list = new ArrayList<ChiTietDiemDanh>() ;
 		PreparedStatement smt = null;
 		try {
 			Connection con = app.getConnection();
 			String sql = "SELECT n.ma, n.ten, n.tenlop, n.hinh, n.gioitinh, c.status , c.lydonghi FROM nguoidung n, diemdanh d, chitietdiemdanh c WHERE c.madiemdanh = d.madiemdanh AND d.masinhvien =n.ma AND d.mamonhoc = ? AND c.ngaydiemdanh = ? AND n.status = 0";
 			smt = con.prepareStatement(sql);
-			smt.setString(1, tenMonHoc);
+			smt.setLong(1, maMonHoc);
 			smt.setString(2, ngayDiemDanh);
 			ResultSet rs= smt.executeQuery();
 			while(rs.next()) {
@@ -79,7 +79,7 @@ public class GiaoVienDAO implements GiaoVienIDAO{
 				
 				String tenLop = rs.getString("tenlop");
 
-				byte[] hinh = rs.getBytes("hinh");
+				String hinh = rs.getString("hinh");
 				
 				String gioitinh = rs.getString("gioitinh");
 				
@@ -97,6 +97,42 @@ public class GiaoVienDAO implements GiaoVienIDAO{
 		return list;
 	}
 
+	public List<ChiTietDiemDanh> fileChiTietDiemDanh(long maMonHoc) {
+		ArrayList<ChiTietDiemDanh> list = new ArrayList<ChiTietDiemDanh>() ;
+		PreparedStatement smt = null;
+		try {
+			Connection con = app.getConnection();
+			String sql = "SELECT n.ma, n.ten, n.tenlop, n.hinh, n.gioitinh,c.ngaydiemdanh, c.status , c.lydonghi FROM nguoidung n, diemdanh d, chitietdiemdanh c WHERE c.madiemdanh = d.madiemdanh AND d.masinhvien =n.ma AND d.mamonhoc = ? AND n.status = 0";
+			smt = con.prepareStatement(sql);
+			smt.setLong(1, maMonHoc);
+			ResultSet rs= smt.executeQuery();
+			while(rs.next()) {
+				long maSinhVien = rs.getLong("ma");
+
+				String tenSinhVien = rs.getString("ten");
+				
+				String tenLop = rs.getString("tenlop");
+
+				String hinh = rs.getString("hinh");
+				
+				String gioitinh = rs.getString("gioitinh");
+				
+				String ngayDiemDanh = rs.getString("ngaydiemdanh");
+				
+				String lyDoNghi = rs.getString("lydonghi");
+				
+				boolean status = rs.getBoolean("status");
+				ChiTietDiemDanh c = new  ChiTietDiemDanh(maSinhVien, tenSinhVien, tenLop, hinh, gioitinh, ngayDiemDanh, lyDoNghi, status);
+				list.add(c);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	public boolean quetQRDiemDanh(long maSinhVien, long maGiaoVien, String matKhauGiaoVien) {
 		// lấy mã diem danh của môn học hiện tại
 		long madiemdanh = getMaDiemdanh(maSinhVien, maGiaoVien, matKhauGiaoVien);
@@ -271,6 +307,25 @@ public class GiaoVienDAO implements GiaoVienIDAO{
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	public String tenMonHoc(long maMonHoc) {
+		PreparedStatement smt = null;
+		String tenmonhoc = null;
+		
+		try {
+			Connection con = app.getConnection();
+			String sql = "SELECT m.tenmonhoc FROM monhoc m WHERE m.mamonhoc = ?";
+			smt = con.prepareStatement(sql);
+			smt.setLong(1, maMonHoc);
+			ResultSet rs= smt.executeQuery();
+			while(rs.next()) {
+				tenmonhoc = rs.getString("tenmonhoc");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return tenmonhoc;
 	}
 
 }

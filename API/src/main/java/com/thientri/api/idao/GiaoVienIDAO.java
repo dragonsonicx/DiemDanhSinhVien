@@ -9,9 +9,11 @@ import com.thientri.api.model.MonHocHienTai;
 
 public interface GiaoVienIDAO {
 	public List<Lich> xemLichDay(long maNguoiDung);
-	public List<ChiTietDiemDanh> xemChiTietDiemDanh(String tenMonHoc, String ngayDiemDanh);
+	public List<ChiTietDiemDanh> xemChiTietDiemDanh(long maMonHoc, String ngayDiemDanh);
+	public List<ChiTietDiemDanh> fileChiTietDiemDanh(long maMonHoc);
 	public boolean quetQRDiemDanh(long maSinhVien,long maGiaoVien, String matKhauGiaoVien);
 	public MonHocHienTai monHocHienTai(long maGiaoVien, String matKhau);
 	public List<MonHoc> getTenMonHoc(long maGiaoVien);
 	public List<String> getNgayHoc(long maGiaoVien, long maMonHoc);
+	public String tenMonHoc(long maMonHoc);
 }

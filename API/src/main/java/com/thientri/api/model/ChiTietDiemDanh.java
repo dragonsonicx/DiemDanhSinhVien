@@ -12,7 +12,7 @@ public class ChiTietDiemDanh implements Serializable{
 	
 	private String tenLop;
 
-	private byte[] hinh;
+	private String hinh;
 	
 	private String gioitinh;
 	
@@ -22,7 +22,7 @@ public class ChiTietDiemDanh implements Serializable{
 	
 	private boolean status;
 
-	public ChiTietDiemDanh(long maSinhVien, String tenSinhVien, String tenLop, byte[] hinh, String gioitinh,
+	public ChiTietDiemDanh(long maSinhVien, String tenSinhVien, String tenLop, String hinh, String gioitinh,
 			String ngayDiemDanh, String lyDoNghi, boolean status) {
 		super();
 		this.maSinhVien = maSinhVien;
@@ -59,11 +59,11 @@ public class ChiTietDiemDanh implements Serializable{
 		this.tenLop = tenLop;
 	}
 
-	public byte[] getHinh() {
+	public String getHinh() {
 		return hinh;
 	}
 
-	public void setHinh(byte[] hinh) {
+	public void setHinh(String hinh) {
 		this.hinh = hinh;
 	}
 
