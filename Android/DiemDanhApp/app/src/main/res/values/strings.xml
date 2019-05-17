@@ -4,9 +4,9 @@
     <string name="close">Close</string>
 
     <string-array name="spinForget">
-        <item>SĐT</item>
         <item>Email</item>
-        <item>Câu hỏi bảo mật</item>
+        <item>Mã SV/GV</item>
+        <item>SĐT</item>
     </string-array>
 
     <string-array name="spinCH">

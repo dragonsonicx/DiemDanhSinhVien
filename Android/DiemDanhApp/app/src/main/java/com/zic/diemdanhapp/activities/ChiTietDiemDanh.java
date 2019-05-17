@@ -59,13 +59,32 @@ public class ChiTietDiemDanh extends AppCompatActivity {
             new HttpAsyncTaskMonHoc().execute(MethodChung.CreateURL() + urlmonhoc);
         }
 
+        spinnermonhoc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                btngongay.setVisibility(View.INVISIBLE);
+                spinnerngay.setVisibility(View.INVISIBLE);
+
+                btnin.setVisibility(View.INVISIBLE);
+                btncommit.setVisibility(View.INVISIBLE);
+                table.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         // Sự kiện bấm button Go của spinner môn học
         btngomonhoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (status.equals("1")) {
-                    spinnermonhoc.getSelectedItem().toString();
-                    urlngayhoc = MethodChung.CreateURL() + "giaovien/getNgayHoc/" + manhanduoc + "/" + "1";
+                    mamonhoc = spinnermonhoc.getSelectedItem().toString();
+                    mamonhoc = ((String) mamonhoc).substring(0, ((String) mamonhoc).indexOf("."));
+
+                    urlngayhoc = MethodChung.CreateURL() + "giaovien/getNgayHoc/" + manhanduoc + "/" + mamonhoc;
                     new HttpAsyncTaskNgay().execute(urlngayhoc);
 
                     btngongay.setVisibility(View.VISIBLE);
@@ -77,21 +96,12 @@ public class ChiTietDiemDanh extends AppCompatActivity {
                 }
             }
         });
-
+        
         // Sự kiện bấm button Go của spinner ngày học
         btngongay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (status.equals("1")) {
-
-                    mamonhoc = spinnermonhoc.getSelectedItem().toString();
-                    mamonhoc = ((String) mamonhoc).substring(((String) mamonhoc).indexOf("{") + 1);
-                    mamonhoc = ((String) mamonhoc).substring(0, ((String) mamonhoc).indexOf("}"));
-
-                    Toast.makeText(ChiTietDiemDanh.this, mamonhoc, Toast.LENGTH_SHORT).show();
-
-//                    urlngayhoc = MethodChung.CreateURL() + "giaovien/getNgayHoc/10052121/1";
-//                    new HttpAsyncTaskNgay().execute(urlngayhoc);
 
                     btnin.setVisibility(View.VISIBLE);
                     btncommit.setVisibility(View.VISIBLE);
@@ -99,7 +109,6 @@ public class ChiTietDiemDanh extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     //Hàm xử lý JSON môn học
@@ -125,7 +134,7 @@ public class ChiTietDiemDanh extends AppCompatActivity {
                     JSONObject obj = array.getJSONObject(i);
                     String tenmonhoc = obj.getString("tenMonHoc");
                     String mamonhoc1 = obj.getString("maMonHoc");
-                    listtenmonhoc.add("{" + mamonhoc1 + "}" + tenmonhoc.toString());
+                    listtenmonhoc.add(mamonhoc1 + ". " + tenmonhoc);
                 }
 
                 //Thêm môn hoc vào spinner tên môn học
@@ -157,8 +166,6 @@ public class ChiTietDiemDanh extends AppCompatActivity {
             Spinner spinnerngayhoc = findViewById(R.id.spinNgay);
 
             try {
-                Toast.makeText(ChiTietDiemDanh.this, "Yolo", Toast.LENGTH_SHORT).show();
-                Toast.makeText(ChiTietDiemDanh.this, manhanduoc, Toast.LENGTH_SHORT).show();
                 JSONArray array = new JSONArray(result);
                 for (int i = 0; i < array.length(); i++) {
                     String ngay = array.get(i).toString();

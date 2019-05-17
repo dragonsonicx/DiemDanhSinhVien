@@ -12,6 +12,10 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
+import android.widget.ScrollView;
+import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,28 +61,28 @@ public class XemLichHoc extends AppCompatActivity {
         //Thực hiện code Json
         new HttpAsyncTaskLichHoc().execute(urlxemlichhoc);
 
-        // Hiện progress bar
-        progressDialog = new ProgressDialog(XemLichHoc.this);
-        progressDialog.setMessage("Loading..."); // Setting Message
-        progressDialog.setTitle("Đang kiểm tra ~"); // Setting Title
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
-        progressDialog.show(); // Display Progress Dialog
-        progressDialog.setCancelable(false);
-        new Thread(new Runnable() {
-            public void run() {
-            }
-        }).start();
-
-        //Delay 2s để lấy dữ liệu ( phòng trường hợp mạng yếu )
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // Tắt progress bar
-                progressDialog.dismiss();
-
-            }
-        }, 1000);
+//        // Hiện progress bar
+//        progressDialog = new ProgressDialog(XemLichHoc.this);
+//        progressDialog.setMessage("Loading..."); // Setting Message
+//        progressDialog.setTitle("Đang kiểm tra ~"); // Setting Title
+//        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+//        progressDialog.show(); // Display Progress Dialog
+//        progressDialog.setCancelable(false);
+//        new Thread(new Runnable() {
+//            public void run() {
+//            }
+//        }).start();
+//
+//        //Delay 2s để lấy dữ liệu ( phòng trường hợp mạng yếu )
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                // Tắt progress bar
+//                progressDialog.dismiss();
+//
+//            }
+//        }, 1000);
 
 
     }
@@ -96,6 +100,18 @@ public class XemLichHoc extends AppCompatActivity {
         protected void onPostExecute(String result) {
 
             CreateTextView(result);
+//            final HorizontalScrollView h = findViewById(R.id.hoziScroll);
+//            final ImageView imageView = findViewById(R.id.imageiuh);
+//
+//            // Chỉnh logo IUH căn giữa theo Table layout
+//            h.post(new Runnable(){
+//                public void run(){
+//                    int width = h.getWidth();
+//                    imageView.requestLayout();
+//                    imageView.getLayoutParams().width = width + 10;
+//                    imageView.getLayoutParams().height = 150;
+//                }
+//            });
 
         }
     }

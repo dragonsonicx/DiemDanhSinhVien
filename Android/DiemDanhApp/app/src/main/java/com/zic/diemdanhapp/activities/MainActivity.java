@@ -37,14 +37,6 @@ public class MainActivity extends AppCompatActivity {
         final TextView txtname = findViewById(R.id.txtName);
         final EditText txtpass = findViewById(R.id.txtPass);
 
-        //Kiểm tra coi có kết nối mạng hay không
-        if (isConnected()) {
-            Toast.makeText(this, "Is connected", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "nope", Toast.LENGTH_SHORT).show();
-        }
-
-
         // Sự kiện bấm nút Login
         Button btnlogin = findViewById(R.id.btnLogin);
         btnlogin.setOnClickListener(new View.OnClickListener() {
@@ -99,15 +91,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //Hàm kiểm tra kết nối mạng
-    public boolean isConnected() {
-        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(MainActivity.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected())
-            return true;
-        else
-            return false;
-    }
+//    //Hàm kiểm tra kết nối mạng
+//    public boolean isConnected() {
+//        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(MainActivity.CONNECTIVITY_SERVICE);
+//        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+//        if (networkInfo != null && networkInfo.isConnected())
+//            return true;
+//        else
+//            return false;
+//    }
 
 
     //Hàm xử lý JSON

@@ -20,7 +20,7 @@ import org.json.JSONObject;
 
 public class ChangePass extends AppCompatActivity {
 
-    private String oldpass, ma, manhanduoc, status;
+    private String oldpass, ma, ten, manhanduoc, status;
 
     private ProgressDialog progressDialog;
 
@@ -34,13 +34,16 @@ public class ChangePass extends AppCompatActivity {
         Intent nhanpass = getIntent();
         manhanduoc = nhanpass.getStringExtra("ma");
         status = nhanpass.getStringExtra("status");
+        ten = nhanpass.getStringExtra("ten");
 
         final EditText editoldpass = findViewById(R.id.editOldPass);
         final EditText editnewpass1 = findViewById(R.id.editNewPass1);
         final EditText editnewpass2 = findViewById(R.id.editNewPass2);
-        final TextView txtviewchangema = findViewById(R.id.txtViewChangeMa);
+        final TextView txtviewchangema = findViewById(R.id.txtViewMa);
+        final TextView txtviewchangeten = findViewById(R.id.txtViewTen);
 
         txtviewchangema.setText(manhanduoc);
+        txtviewchangeten.setText(ten);
 
         // Sự kiện bấm nút Tiếp tục
         Button btntieptucchange = findViewById(R.id.btnTiepChange);

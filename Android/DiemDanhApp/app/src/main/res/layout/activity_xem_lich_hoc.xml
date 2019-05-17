@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical">
 
     <HorizontalScrollView
+        android:id="@+id/hoziScroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fillViewport="false">
@@ -16,20 +18,16 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:id="@+id/imageiuh"
+                android:layout_width="match_parent"
+                android:layout_height="150px"
                 app:srcCompat="@drawable/logo_iuh" />
 
             <TextView
                 android:id="@+id/txtViewTitle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="20dp"
-                android:paddingBottom="20dp"
+                android:layout_height="60dp"
+                android:gravity="center_vertical"
                 android:text="Lịch học/dạy"
                 android:textAlignment="center"
                 android:textColor="#040750"
@@ -38,9 +36,8 @@
 
             <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/tableLichHoc"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="#000000"
                 android:stretchColumns="1">
 
@@ -66,9 +63,10 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:layout_width="100dp"                       
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:background="@drawable/ttgv_background"
+                        android:gravity="center_vertical"
                         android:padding="4px"
                         android:text="Thứ 2"
                         android:textAlignment="center"
@@ -157,7 +155,7 @@
 
                 <TableRow
                     android:id="@+id/row3"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#ffffff"
@@ -165,9 +163,10 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:layout_width="300px"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:background="@drawable/ttgv_background"
+                        android:gravity="center_vertical"
                         android:padding="4px"
                         android:text="Thứ 3"
                         android:textAlignment="center"
@@ -261,9 +260,10 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:layout_width="300px"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:background="@drawable/ttgv_background"
+                        android:gravity="center_vertical"
                         android:padding="4px"
                         android:text="Thứ 4"
                         android:textAlignment="center"
@@ -358,9 +358,10 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:layout_width="300px"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:background="@drawable/ttgv_background"
+                        android:gravity="center_vertical"
                         android:padding="4px"
                         android:text="Thứ 5"
                         android:textAlignment="center"
@@ -455,9 +456,10 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:layout_width="300px"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:background="@drawable/ttgv_background"
+                        android:gravity="center_vertical"
                         android:padding="4px"
                         android:text="Thứ 6"
                         android:textAlignment="center"
@@ -552,9 +554,10 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:layout_width="300px"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:background="@drawable/ttgv_background"
+                        android:gravity="center_vertical"
                         android:padding="4px"
                         android:text="Thứ 7"
                         android:textAlignment="center"
@@ -649,9 +652,10 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:layout_width="300px"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:background="@drawable/ttgv_background"
+                        android:gravity="center_vertical"
                         android:padding="4px"
                         android:text="Chủ nhật"
                         android:textAlignment="center"

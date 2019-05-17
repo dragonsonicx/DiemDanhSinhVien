@@ -110,13 +110,13 @@ public class ThongTinSinhVien extends AppCompatActivity {
             case R.id.bangDiemDanh:
                 Intent intentb = new Intent(ThongTinSinhVien.this, ChiTietDiemDanh.class);
                 intentb.putExtra("ma", manhanduoc);
-                intentb.putExtra("status", "1");
+                intentb.putExtra("status", "0");
                 startActivity(intentb);
                 break;
             case R.id.xemLichDay:
                 Intent intentb1 = new Intent(ThongTinSinhVien.this, XemLichHoc.class);
                 intentb1.putExtra("ma", manhanduoc);
-                intentb1.putExtra("status", "1");
+                intentb1.putExtra("status", "0");
                 startActivity(intentb1);
                 break;
             case R.id.doiMatKhau:

@@ -35,7 +35,8 @@ public class ThongTinGiaoVien extends AppCompatActivity {
 
     String ma, ten, hinh, ngaysinh, gioitinh, trinhdo, chucvu, tenkhoa, pass;
 
-    ProgressDialog progressDialog;
+//    ProgressDialog progressDialog;
+
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
 
@@ -68,28 +69,6 @@ public class ThongTinGiaoVien extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupDrawerContent(navigationView);
-
-//        // Hiện progress bar
-//        progressDialog = new ProgressDialog(ThongTinGiaoVien.this);
-//        progressDialog.setMessage("Loading..."); // Setting Message
-//        progressDialog.setTitle("Đang kiểm tra ~"); // Setting Title
-//        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
-//        progressDialog.show(); // Display Progress Dialog
-//        progressDialog.setCancelable(false);
-//        new Thread(new Runnable() {
-//            public void run() {
-//            }
-//        }).start();
-//
-//        //Delay 1.5s để lấy dữ liệu ( phòng trường hợp mạng yếu )
-//        Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                // Tắt progress bar
-//                progressDialog.dismiss();
-//            }
-//        }, 1500);
 
         // Sự kiện bấm nút Quét mã QR
         Button btnqr = findViewById(R.id.btnQRGV);
@@ -125,6 +104,7 @@ public class ThongTinGiaoVien extends AppCompatActivity {
                 Intent intentb2 = new Intent(ThongTinGiaoVien.this, ChangePass.class);
                 intentb2.putExtra("ma", manhanduoc);
                 intentb2.putExtra("status", "1");
+                intentb2.putExtra("ten", ten);
                 startActivity(intentb2);
                 break;
             case R.id.dangXuat:
