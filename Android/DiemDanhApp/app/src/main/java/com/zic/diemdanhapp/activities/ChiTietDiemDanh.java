@@ -46,14 +46,15 @@ public class ChiTietDiemDanh extends AppCompatActivity {
 
         // Ân mọi thứ trừ logo và spinner chọn môn học
         final Spinner spinnermonhoc = findViewById(R.id.spinMonHoc);
-        spinnermonhoc.setVisibility(View.VISIBLE);
         final TableLayout table = findViewById(R.id.tableLichHoc);
-        table.setVisibility(View.INVISIBLE);
         final Spinner spinnerngay = findViewById(R.id.spinNgay);
-        spinnerngay.setVisibility(View.INVISIBLE);
         final Button btnin = findViewById(R.id.btnInDiemDanh);
+        final Button btncommit = findViewById(R.id.btnGui);
+
+        spinnerngay.setVisibility(View.INVISIBLE);
+        table.setVisibility(View.INVISIBLE);
+        spinnermonhoc.setVisibility(View.VISIBLE);
         btnin.setVisibility(View.INVISIBLE);
-        final Button btncommit = findViewById(R.id.btnCommit);
         btncommit.setVisibility(View.INVISIBLE);
 
         final Button btngomonhoc = findViewById(R.id.btnGoTenMonHoc);
@@ -66,6 +67,7 @@ public class ChiTietDiemDanh extends AppCompatActivity {
             new HttpAsyncTaskMonHoc().execute(MethodChung.CreateURL() + urlmonhoc);
         }
 
+        //Hoạt động khi chọn item trên Spinner Môn học
         spinnermonhoc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -120,10 +122,6 @@ public class ChiTietDiemDanh extends AppCompatActivity {
                     btnin.setVisibility(View.VISIBLE);
                     btncommit.setVisibility(View.VISIBLE);
                     table.setVisibility(View.VISIBLE);
-
-
-
-
                 }
             }
         });

@@ -73,6 +73,12 @@ public class GiaoVienController {
 		return giaoVienIDAO.getNgayHoc(maGiaoVien, maMonHoc);
 	}
 
+	@GetMapping(value = "/taoListChiTietDiemDanh/{maGiaoVien}/{maMonHoc}", produces = "application/json;charset=UTF-8")
+	public boolean taoListChiTietDiemDanh(@PathVariable("maGiaoVien") long maGiaoVien,@PathVariable("maMonHoc") long maMonHoc) {
+		return giaoVienIDAO.taoListChiTietDiemDanh(maGiaoVien, maMonHoc);
+	}
+	
+	
 //	@GetMapping(value = "/fileChiTietDiemDanh/{maGiaoVien}/{maMonHoc}", produces = "application/json;charset=UTF-8")
 //	public boolean fileChiTietDiemDanh(@PathVariable("maGiaoVien") long maGiaoVien,
 //			@PathVariable("maMonHoc") long maMonHoc) {

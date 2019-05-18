@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity=""
+            app:srcCompat="@drawable/logo_iuh" />
+
+        <TextView
+            android:id="@+id/txtViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="CHI TIẾT ĐIỂM DANH SINH VIÊN"
+            android:textAlignment="center"
+            android:textColor="#040750"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinMonHoc"
+            android:layout_width="270dp"
+            android:layout_height="32dp"
+            android:layout_margin="10dp"
+            android:background="#010028"/>
+
+        <Button
+            android:id="@+id/btnTiep"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="-45dp"
+            android:layout_marginRight="10dp"
+            android:text="Tiếp"
+            android:textSize="10dp" />
+
+        <Button
+            android:id="@+id/btnIn"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_background"
+            android:text="..........."
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnTongNgayHoc"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="-70dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_background"
+            android:text="TỔNG NGÀY
+            ĐI HỌC"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/tableLichHoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10px"
+            android:background="#000000"
+            android:stretchColumns="1">
+
+            <TableRow
+                android:id="@+id/rowTitleDiemDanh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtTitleTen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ttgv_background"
+                    android:padding="10px"
+                    android:text="STT"
+                    android:textAlignment="center"
+                    android:textColor="#040750"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtTitleMa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ttgv_background"
+                    android:padding="10px"
+                    android:text="Ngày"
+                    android:textAlignment="center"
+                    android:textColor="#040750"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtTitleDiemDanh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ttgv_background"
+                    android:padding="10px"
+                    android:text="Trạng thái"
+                    android:textAlignment="center"
+                    android:textColor="#040750"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <!--<TableRow-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="Phạm Nguyễn Minh Trí"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="15022571"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:gravity="center">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="45dp"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="Nguyễn Minh Thiên"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="15094631"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:gravity="center">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="vertical">-->
+
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="Tì Văn Téo"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="15011111"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:gravity="center">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="vertical">-->
+
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="Tì Văn Téo"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="15011111"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:gravity="center">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="vertical">-->
+
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="Tì Văn Téo"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="15011111"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:gravity="center">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="vertical">-->
+
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="Tì Văn Téo"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="15011111"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:gravity="center">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="vertical">-->
+
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="Tì Văn Téo"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="15011111"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:gravity="center">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="vertical">-->
+
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="Tì Văn Téo"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="15011111"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:gravity="center">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="vertical">-->
+
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="Tì Văn Téo"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="15011111"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:gravity="center">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="vertical">-->
+
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="Tì Văn Téo"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="15011111"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:gravity="center">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="vertical">-->
+
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="Tì Văn Téo"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="15011111"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:gravity="center">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#ffffff"-->
+            <!--android:orientation="vertical">-->
+
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="Tì Văn Téo"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:padding="10px"-->
+            <!--android:text="15011111"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#040750"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/row_xem_lich_white"-->
+            <!--android:gravity="center">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--</TableRow>-->
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</ScrollView>

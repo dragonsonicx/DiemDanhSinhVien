@@ -29,6 +29,8 @@
         <activity android:name=".activities.ChinhSuaSV" />
         <activity android:name=".activities.ChiTietDiemDanh" />
         <activity android:name=".activities.XemLichHoc" />
+        <activity android:name=".activities.ChietTietDiemDanhSV" />
+        <activity android:name=".activities.ChiTietDiemDanhSV"></activity>
     </application>
 
 </manifest>

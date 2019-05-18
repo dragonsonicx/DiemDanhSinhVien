@@ -260,7 +260,6 @@ public class GiaoVienDAO implements GiaoVienIDAO{
 	public List<String> getNgayHoc(long maGiaoVien, long maMonHoc) {
 		PreparedStatement smt = null;
 		List<String> list = new ArrayList<String>();
-		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		String ngaybatdau = null;
 		String ngayketthuc = null;
 		String thu = null;
@@ -309,6 +308,46 @@ public class GiaoVienDAO implements GiaoVienIDAO{
 		return list;
 	}
 
+	public boolean taoListChiTietDiemDanh(long maGiaoVien, long maMonHoc) {
+		PreparedStatement smt = null;
+		long maDiemDanh = 0;
+		int n=0;
+		long madiemdanh = getMaDiemDanh(maGiaoVien, maMonHoc);
+		List<String> ngayHoc = getNgayHoc(maGiaoVien, maMonHoc);
+		for (String ngaydiemdanh : ngayHoc) {
+			try {
+				Connection con = app.getConnection();
+				String sql = "INSERT INTO chitietdiemdanh (madiemdanh,ngaydiemdanh) VALUES(?,?)";
+				smt = con.prepareStatement(sql);
+				smt.setLong(1, madiemdanh);
+				smt.setString(2, ngaydiemdanh);
+				n = smt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return n>0;
+	}
+	
+	public long getMaDiemDanh(long maGiaoVien, long maMonHoc) {
+		PreparedStatement smt = null;
+		long maDiemDanh = 0;
+		
+		try {
+			Connection con = app.getConnection();
+			String sql = "SELECT d.madiemdanh FROM diemdanh d WHERE d.magiaovien = ? AND d.mamonhoc = ?";
+			smt = con.prepareStatement(sql);
+			smt.setLong(2, maGiaoVien);
+			smt.setLong(2, maMonHoc);
+			ResultSet rs= smt.executeQuery();
+			while(rs.next()) {
+				maDiemDanh = rs.getLong("madiemdanh");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return maDiemDanh;
+	}
 	public String tenMonHoc(long maMonHoc) {
 		PreparedStatement smt = null;
 		String tenmonhoc = null;

@@ -16,4 +16,5 @@ public interface GiaoVienIDAO {
 	public List<MonHoc> getTenMonHoc(long maGiaoVien);
 	public List<String> getNgayHoc(long maGiaoVien, long maMonHoc);
 	public String tenMonHoc(long maMonHoc);
+	public boolean taoListChiTietDiemDanh(long maGiaoVien, long maMonHoc);
 }

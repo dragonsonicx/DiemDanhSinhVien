@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 
 import com.thientri.api.config.ApplicationContextConfig;
 import com.thientri.api.idao.SinhVienIDAO;
+import com.thientri.api.model.DiemDanhSinhVien;
 import com.thientri.api.model.Lich;
 import com.thientri.api.model.MonHoc;
 import com.thientri.api.model.MonHocHienTai;
@@ -156,6 +157,106 @@ public class SinhVienDAO implements SinhVienIDAO{
 				      
 				return monHocHienTai;
 	}
+	public List<MonHoc> getTenMonHoc(long maSinhVien) {
+		PreparedStatement smt = null;
+		List<MonHoc> listMonHoc = new ArrayList<MonHoc>();
+		MonHoc m = null;
+		String tenmonhoc= null;
+		long mamonhoc;
+		
+		try {
+			Connection con = app.getConnection();
+			String sql = "SELECT m.mamonhoc , m.tenmonhoc FROM monhoc m , nguoidung n, diemdanh d WHERE n.ma = d.masinhvien AND d.mamonhoc = m.mamonhoc AND n.ma = ? AND n.status = 0";
+			smt = con.prepareStatement(sql);
+			smt.setLong(1, maSinhVien);
+			ResultSet rs= smt.executeQuery();
+			while(rs.next()) {
+				mamonhoc = rs.getLong("mamonhoc");
+				tenmonhoc = rs.getString("tenmonhoc");
+				m = new MonHoc(mamonhoc, tenmonhoc);
+				listMonHoc.add(m);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listMonHoc;
+	}
 
+	public List<DiemDanhSinhVien> xemChiTietDiemDanh(long maSinhVien, long maMonHoc) {
+		PreparedStatement smt = null;
+		List<DiemDanhSinhVien> listMonHoc = new ArrayList<DiemDanhSinhVien>();
+		DiemDanhSinhVien m = null;
+		String ngaydiemdanh= null;
+		boolean status;
+		List<String> ngayhoc = getNgayHoc(maSinhVien, maMonHoc);
+		try {
+			Connection con = app.getConnection();
+			String sql = "SELECT c.ngaydiemdanh ,c.status FROM diemdanh d, chitietdiemdanh c WHERE d.madiemdanh = c.madiemdanh AND d.masinhvien =? AND d.mamonhoc = ?";
+			smt = con.prepareStatement(sql);
+			smt.setLong(1, maSinhVien);
+			smt.setLong(2, maMonHoc);
+			ResultSet rs= smt.executeQuery();
+			while(rs.next()) {
+				ngaydiemdanh = rs.getString("ngaydiemdanh");
+				status = rs.getBoolean("status");
+				m = new DiemDanhSinhVien(ngaydiemdanh, status);
+				listMonHoc.add(m);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listMonHoc;
+	}
+	
+	public List<String> getNgayHoc(long maSinhVien, long maMonHoc) {
+		PreparedStatement smt = null;
+		List<String> list = new ArrayList<String>();
+		String ngaybatdau = null;
+		String ngayketthuc = null;
+		String thu = null;
+		try {
+			Connection con = app.getConnection();
+			String sql = "SELECT m.ngaybatdau, m.ngayketthuc,c.thu FROM monhoc m , nguoidung n, cahoc c, diemdanh d WHERE d.masinhvien = n.ma AND d.mamonhoc = m.mamonhoc AND n.status = 0 AND m.mamonhoc = c.macahoc AND n.ma = ? AND m.mamonhoc = ?";
+			smt = con.prepareStatement(sql);
+			smt.setLong(1, maSinhVien);
+			smt.setLong(2, maMonHoc);
+			ResultSet rs= smt.executeQuery();
+			while(rs.next()) {
+				ngaybatdau = rs.getString("ngaybatdau");
+				ngayketthuc = rs.getString("ngayketthuc");
+				thu = rs.getString("thu");
+			}
+			
+
+			DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			
+			LocalDate start = LocalDate.parse(ngaybatdau);
+			LocalDate end = LocalDate.parse(ngayketthuc);
+			Calendar calendar = Calendar.getInstance();
+
+
+			Date  ngayBatDau = simpleDateFormat.parse(ngaybatdau);
+			Date  ngayKetThuc = simpleDateFormat.parse(ngayketthuc);
+
+			long getDiff = ngayKetThuc.getTime() - ngayBatDau.getTime();
+
+			long getDaysDiff = getDiff / (24 * 60 * 60 * 1000);
+			for (long i = 0; i < getDaysDiff; i++) {
+				
+				start=start.plusDays(1);
+				Date ngay = simpleDateFormat.parse(start.toString());
+		        calendar.setTime(ngay);
+		        String thuOfDay =calendar.get(Calendar.DAY_OF_WEEK)+"";
+				if(thuOfDay.trim().equals(thu)) {
+					list.add(start.toString());
+				}
+			}
+		
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 }

@@ -10,6 +10,7 @@ D:\Z-BT\Android\DiemDanhSinhVien\API\src\main\java\com\thientri\api\model\DiemDa
 D:\Z-BT\Android\DiemDanhSinhVien\API\src\main\java\com\thientri\api\model\NguoiDung.java
 D:\Z-BT\Android\DiemDanhSinhVien\API\src\main\java\com\thientri\api\model\MonHoc.java
 D:\Z-BT\Android\DiemDanhSinhVien\API\src\main\java\com\thientri\api\idao\SinhVienIDAO.java
+D:\Z-BT\Android\DiemDanhSinhVien\API\src\main\java\com\thientri\api\model\DiemDanhSinhVien.java
 D:\Z-BT\Android\DiemDanhSinhVien\API\src\main\java\com\thientri\api\idao\NguoiDungIDAO.java
 D:\Z-BT\Android\DiemDanhSinhVien\API\src\main\java\com\thientri\api\dao\GiaoVienDAO.java
 D:\Z-BT\Android\DiemDanhSinhVien\API\src\main\java\com\thientri\api\controller\NguoiDungController.java

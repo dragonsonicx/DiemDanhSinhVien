@@ -108,7 +108,7 @@ public class ThongTinSinhVien extends AppCompatActivity {
         Class fragmentClass;
         switch (menuItem.getItemId()) {
             case R.id.bangDiemDanh:
-                Intent intentb = new Intent(ThongTinSinhVien.this, ChiTietDiemDanh.class);
+                Intent intentb = new Intent(ThongTinSinhVien.this, ChiTietDiemDanhSV.class);
                 intentb.putExtra("ma", manhanduoc);
                 intentb.putExtra("status", "0");
                 startActivity(intentb);
