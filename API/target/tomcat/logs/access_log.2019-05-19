@@ -1,0 +1,10 @@
+192.168.1.4 - - [19/May/2019:09:02:17 +0700] "GET /giaovien/getNgayHoc/10052121/1 HTTP/1.1" 200 168 http-bio-8899-exec-1 894
+192.168.1.4 - - [19/May/2019:09:02:18 +0700] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8899-exec-3 19
+192.168.1.5 - - [19/May/2019:09:06:13 +0700] "GET /nguoidung/dangNhap/15022571/3 HTTP/1.1" 200 306 http-bio-8899-exec-5 146
+192.168.1.5 - - [19/May/2019:09:06:13 +0700] "GET /nguoidung/findById/15022571 HTTP/1.1" 200 306 http-bio-8899-exec-7 26
+192.168.1.5 - - [19/May/2019:09:06:16 +0700] "GET //sinhvien/getTenMonHoc/15022571 HTTP/1.1" 200 69 http-bio-8899-exec-9 138
+192.168.1.5 - - [19/May/2019:09:06:17 +0700] "GET //sinhvien/xemChiTietDiemDanh/15022571/2 HTTP/1.1" 200 67 http-bio-8899-exec-1 172
+192.168.1.5 - - [19/May/2019:09:06:21 +0700] "GET /sinhvien/xemLichDay/15022571 HTTP/1.1" 200 296 http-bio-8899-exec-4 133
+192.168.1.5 - - [19/May/2019:09:06:22 +0700] "GET /sinhvien/xemLichDay/15022571 HTTP/1.1" 200 296 http-bio-8899-exec-5 19
+192.168.1.5 - - [19/May/2019:09:06:30 +0700] "GET /nguoidung/findById/15022571 HTTP/1.1" 200 306 http-bio-8899-exec-9 17
+192.168.1.5 - - [19/May/2019:09:09:11 +0700] "GET /nguoidung/findById/15022571 HTTP/1.1" 200 306 http-bio-8899-exec-2 19

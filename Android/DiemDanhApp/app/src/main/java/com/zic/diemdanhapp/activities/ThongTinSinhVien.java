@@ -123,6 +123,7 @@ public class ThongTinSinhVien extends AppCompatActivity {
                 Intent intentb2 = new Intent(ThongTinSinhVien.this, ChangePass.class);
                 intentb2.putExtra("ma", manhanduoc);
                 intentb2.putExtra("status", "0");
+                intentb2.putExtra("ten", ten);
                 startActivity(intentb2);
                 break;
             case R.id.dangXuat:

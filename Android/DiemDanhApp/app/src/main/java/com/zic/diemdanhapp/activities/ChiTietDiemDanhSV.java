@@ -167,6 +167,7 @@ public class ChiTietDiemDanhSV extends AppCompatActivity {
                         TextView txtNgay = new TextView(getApplicationContext());
                         TextView txtStat = new TextView(getApplicationContext());
 
+
                         CreateRow(tr, txtSTT, stt, txtNgay, ngay, txtStat, stat);
                     }
 
